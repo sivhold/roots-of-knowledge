@@ -1,0 +1,17 @@
+- [x] For claude code, what options are there for persistant mem ✅ 2026-06-20
+- [x] Once I setup claude code to also have full read/right access to this ROKT folder, will this truly be a single source of truth? ✅ 2026-06-20
+- [x] remember that I want all knowledge saved in .md files so that both cowork and code both have access to the same single sources of truth ✅ 2026-06-20 (captured in CLAUDE.md "Memory" section)
+- [ ] I want you to capture all guidance and details re the claude cowork conversations remembering them somewhere for both cowork and code
+- [ ] But can you have you review all the todos / tasks every time you manage (create, read, update, delete)
+- [ ] this new conversation is focused on the housekeeping step of deciding on a folder structure.
+- [ ] for now, I don't want to use any extra/special .md formatting that only works with obsidian tasks (yet).  I will add / use them when the need arises.
+- [ ] Create a Claude skill for checking inconsistencies across the knowledge base
+	- [ ] Goal: cross-check local docs (CLAUDE.md, MEMORY.md, ToDo files, etc.) against each other and against general/public knowledge, flag conflicts, propose curation/cleanup
+	- [ ] Distinct from existing `consolidate-memory` skill, which only reflects over memory files (merge dupes, fix stale facts) — this would be broader, covering all knowledge-base docs plus external knowledge checks
+	- [ ] Procedure to encode: gather sources -> cross-check -> flag conflicts -> propose resolution -> update files
+	- [ ] Also considered: a skill for "interview me on a topic" to reach common understanding before starting work
+		- [ ] Built-in AskUserQuestion clarifying behavior already covers the generic case
+		- [ ] Skill would only add value if it enforces a specific structure every time (e.g. always cover scope, audience, constraints, success criteria, output as structured doc)
+	- [ ] Alternative considered: encode the inconsistency-check process as a CLAUDE.md section instead of a skill, since it's project-specific and both Claude Code and Cowork already read that file
+	- [ ] If made recurring (e.g. weekly audit), pair with the scheduling feature
+	- [ ] Use skill-creator skill to build once scope is decided

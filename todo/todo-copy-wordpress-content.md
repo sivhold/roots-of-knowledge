@@ -1,0 +1,21 @@
+---
+Parent: "[[todo-master|Master ToDo]]"
+status: paused
+---
+---
+- [ ] Inventory all pages/content on the live WordPress.com site (https://roots-of-knowledge.com/)
+- [ ] List all text content per page (copy into source files or a content folder)
+- [ ] Export/download all images and media from WordPress.com
+- [ ] Recreate site structure as Next.js pages/routes (App Router)
+- [ ] Rebuild navigation/menu structure
+- [ ] Rebuild footer (contact info, social links, etc.)
+- [ ] Re-implement the Stripe donation flow (confirm it works with a fully static export — may need a hosted Stripe Checkout link/button rather than a server-side API route)
+- [ ] Double-check no "nonprofit" / "501(c)(3)" / tax-deductible language carried over (ROKT is an LLC)
+- [ ] Style site with Tailwind to match (or improve on) current CoachAva theme look
+- [ ] Test responsiveness (mobile/tablet/desktop)
+- [ ] Set up basic SEO (meta titles/descriptions, favicon, Open Graph tags)
+- [ ] Connect production custom domain (roots-of-knowledge.com) to the Cloudflare Pages project
+- [ ] Test all forms/links end-to-end on the new site
+- [ ] Get Carol's sign-off before final cutover
+- [ ] Update DNS to point the live domain to Cloudflare Pages
+- [ ] Decide what happens to the WordPress.com subscription (cancel before renewal, ~10 months out)

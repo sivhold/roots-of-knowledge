@@ -1,0 +1,107 @@
+<style>
+  .rokt-page { font-family: var(--font-sans); max-width: 680px; margin: 0 auto; }
+  .rokt-header { background: #6B4A2B; padding: 14px 24px; display: flex; align-items: center; gap: 14px; }
+  .rokt-header-title { color: #FDF6EC; font-size: 13px; font-weight: 500; letter-spacing: 0.03em; }
+  .rokt-nav { color: #FDF6EC; font-size: 11px; opacity: 0.8; margin-top: 2px; }
+  .rokt-hero-bar { background: #C58F41; padding: 6px 24px; }
+  .rokt-hero-bar p { color: #FDF6EC; font-size: 11px; margin: 0; opacity: 0.7; font-style: italic; }
+  .page-body { background: #C58F41; padding: 28px 32px 40px; }
+  .page-title { color: #FDF6EC; font-size: 22px; font-weight: 500; margin: 0 0 6px; border-bottom: 1px solid rgba(253,246,236,0.25); padding-bottom: 14px; }
+  .intro-block { margin: 18px 0 28px; }
+  .intro-block p { color: #FDF6EC; font-size: 13px; line-height: 1.7; margin: 0 0 8px; }
+  .section-heading { color: #FDF6EC; font-size: 18px; font-weight: 500; margin: 28px 0 14px; }
+  .sub-heading { color: #FDF6EC; font-size: 15px; font-weight: 500; margin: 18px 0 8px; }
+  .card { background: rgba(107,74,43,0.35); border: 0.5px solid rgba(253,246,236,0.25); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
+  .card p { color: #FDF6EC; font-size: 13px; margin: 0; line-height: 1.7; }
+  .card .label { font-size: 11px; color: rgba(253,246,236,0.65); margin: 0 0 4px; }
+  .amount-row { display: flex; gap: 10px; margin: 12px 0 20px; }
+  .amount-pill { background: rgba(107,74,43,0.4); border: 0.5px solid rgba(253,246,236,0.35); border-radius: 20px; padding: 6px 18px; color: #FDF6EC; font-size: 13px; font-weight: 500; }
+  .sponsorship-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .sponsor-card { background: rgba(107,74,43,0.35); border: 0.5px solid rgba(253,246,236,0.25); border-radius: 10px; padding: 14px 18px; }
+  .sponsor-card .amount { color: #FDF6EC; font-size: 18px; font-weight: 500; margin: 0 0 2px; }
+  .sponsor-card .desc { color: rgba(253,246,236,0.75); font-size: 12px; margin: 0; }
+  .how-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+  .how-card { background: rgba(107,74,43,0.35); border: 0.5px solid rgba(253,246,236,0.25); border-radius: 10px; padding: 14px 16px; }
+  .how-card .icon { font-size: 20px; color: #FDF6EC; margin-bottom: 6px; }
+  .how-card .how-title { color: #FDF6EC; font-size: 13px; font-weight: 500; margin: 0 0 4px; }
+  .how-card .how-detail { color: rgba(253,246,236,0.7); font-size: 11px; margin: 0; line-height: 1.5; }
+  .coming-soon-badge { background: rgba(107,74,43,0.5); border: 0.5px dashed rgba(253,246,236,0.3); border-radius: 10px; padding: 10px 16px; margin-top: 4px; }
+  .coming-soon-badge p { color: rgba(253,246,236,0.55); font-size: 12px; margin: 0; font-style: italic; }
+  .volunteer-bar { text-align: center; margin-top: 28px; padding-top: 18px; border-top: 0.5px solid rgba(253,246,236,0.2); }
+  .volunteer-bar p { color: rgba(253,246,236,0.75); font-size: 13px; margin: 0; }
+  .volunteer-bar a { color: #FDF6EC; text-decoration: underline; }
+  .rokt-footer { background: #6B4A2B; padding: 12px 24px; display: flex; justify-content: center; gap: 16px; }
+  .rokt-footer span { color: rgba(253,246,236,0.7); font-size: 11px; }
+</style>
+
+<div class="rokt-page">
+  <h2 class="sr-only">Mockup of the ROKT Support Our Work page</h2>
+
+  <div class="rokt-header">
+    <div>
+      <div class="rokt-header-title">🌿 ROOTS OF KNOWLEDGE TUTORING</div>
+      <div class="rokt-nav">About · Programs · Enroll · Volunteer · Resources · <strong style="color:#FDF6EC;">Support Our Work</strong></div>
+    </div>
+  </div>
+
+  <div class="page-body">
+    <h1 class="page-title">Support Our Work</h1>
+
+    <div class="intro-block">
+      <p>Every child deserves to read with confidence. Your support helps make that possible for children in underserved communities across Los Angeles County — completely free of charge to their families.</p>
+      <p>When you support Roots of Knowledge Tutoring, you help provide books, learning materials, tutoring supplies, and virtual resources that keep our sessions running.</p>
+    </div>
+
+    <h2 class="section-heading">Ways to give</h2>
+
+    <p class="sub-heading">One-time gift</p>
+    <div class="amount-row">
+      <div class="amount-pill">$25</div>
+      <div class="amount-pill">$50</div>
+      <div class="amount-pill">$100</div>
+      <div class="amount-pill">Other</div>
+    </div>
+
+    <p class="sub-heading">Monthly sponsorship</p>
+    <div class="sponsorship-row">
+      <div class="sponsor-card">
+        <div class="amount">$30 / month</div>
+        <div class="desc">Sponsors one child's tutoring</div>
+      </div>
+      <div class="sponsor-card">
+        <div class="amount">$60 / month</div>
+        <div class="desc">Sponsors two children</div>
+      </div>
+    </div>
+
+    <h2 class="section-heading">How to give</h2>
+
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="icon"><i class="ti ti-device-mobile" aria-hidden="true"></i></div>
+        <div class="how-title">Zelle or Cash App</div>
+        <div class="how-detail">Send to 310-597-3810<br>Memo: Roots of Knowledge Tutoring</div>
+      </div>
+      <div class="how-card">
+        <div class="icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+        <div class="how-title">Check by mail</div>
+        <div class="how-detail">Payable to Roots of Knowledge Tutoring<br>Call 310-597-3810 for address</div>
+      </div>
+      <div class="how-card" style="opacity: 0.6;">
+        <div class="icon"><i class="ti ti-credit-card" aria-hidden="true"></i></div>
+        <div class="how-title">Card payment</div>
+        <div class="coming-soon-badge"><p>Coming soon</p></div>
+      </div>
+    </div>
+
+    <div class="volunteer-bar">
+      <p>Interested in volunteering your time instead? <a href="#">Contact us</a> — we'd love to hear from you.</p>
+    </div>
+  </div>
+
+  <div class="rokt-footer">
+    <span>© 2026 Roots of Knowledge Tutoring</span>
+    <span>●</span>
+    <span>rootsofknowledgetutor@gmail.com</span>
+  </div>
+</div>

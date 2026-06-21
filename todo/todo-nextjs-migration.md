@@ -1,0 +1,40 @@
+---
+Parent: "[[todo-master|Master ToDo]]"
+status: active
+---
+---
+# ROKT: WordPress.com → Next.js + Cloudflare Pages Migration TODO
+
+## 1. Test Cloudflare Pages with a "Hello World" static site (verify it's really free)
+
+- [x] Create a free Cloudflare account under rootsofknowledgetutor@gmail.com
+- [x] Create a new GitHub account (sivhold@gmail.com) to hold the project repos
+- [x] Create a simple homepage-mockup `index.html` styled to resemble the live WordPress site
+- [x] Create a new public GitHub repo (`rokt-hello-world`) and upload the `index.html` via GitHub's web upload
+- [x] Connect that repo to Cloudflare Pages (GitHub-connected, not drag-and-drop) and deploy
+- [x] Open the deployed `rokt-hello-world.pages.dev` URL and confirm it looks correct
+- [x] Check Cloudflare dashboard for any billing/usage prompts or required payment info
+- [ ] Test adding a custom domain/subdomain to the Pages project to confirm free SSL + custom domain works
+- [ ] Note any limits encountered (build minutes, file count, etc.) for future reference
+- [ ] Store Cloudflare account credentials in a password manager shared with Carol
+- [ ] Decide whether to delete this test project once confident, or leave it as a reference
+- [ ] Schedule a short screen-share walkthrough for Carol after the real site launches (live site, Stripe donation flow, what a domain-renewal email looks like)
+
+## 2. Decide on CSS tech for the Next.js rebuild
+
+- [x] Compare CSS approaches (Tailwind, CSS Modules, vanilla CSS/Sass, CSS-in-JS, etc.) weighted toward long-term maintainability and simplicity — **decided 2026-06-21: Tailwind CSS.** Rationale in `brain/tech-stack-rationale.md`.
+- [ ] Decide whether to pair Tailwind with a pre-built component library (e.g. shadcn/ui, Radix, Headless UI) or hand-build components — still open, deferred until Phase B scaffolding begins
+- [x] Record final decision + rationale in `brain/tech-stack-rationale.md`
+
+## 3. Test a "Hello World" Next.js site on Cloudflare Pages
+
+- [ ] Install/confirm Node.js v24+ and npm on your PC
+- [ ] Scaffold a new Next.js app locally (`npx create-next-app@latest`, TypeScript template — CSS approach per decision above)
+- [ ] Configure `next.config.js` for static export (`output: "export"`)
+- [ ] Confirm `npm run build` produces a static `out/` folder with no server-only features used
+- [ ] Create a new GitHub repo (e.g. `rokt-nextjs-hello-world`) and push the project
+- [ ] Connect that repo to Cloudflare Pages, set build command (`npm run build`) and output directory (`out`)
+- [ ] Deploy and confirm the Next.js site loads and routes work correctly
+- [ ] Test at least one client-side React feature (e.g. a button with `useState`) to confirm it works in static export
+- [ ] Push a small change and confirm Cloudflare auto-rebuilds and redeploys (CI/CD works end-to-end)
+- [ ] Test a Cloudflare Pages branch preview (push to a non-main branch, confirm a preview URL is generated)

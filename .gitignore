@@ -1,0 +1,21 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Obsidian cache (keep plugin config, skip cache)
+.obsidian/cache
+.obsidian/workspace.json
