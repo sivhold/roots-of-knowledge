@@ -4,6 +4,28 @@ Running log of durable decisions and learnings, shared across Claude Cowork and 
 
 ---
 
+- **2026-06-21** — **Phase B design session: color system + global layout complete.** Full session summary:
+  - Picked `rokt-accent: #3d7a45` — sourced from Carol's existing flyer (section headers, icons, callout boxes). Confirmed same green also appears in logo underline/wordmark. Documented in `brain/design-tokens.md`.
+  - Added two new named font tokens — `rokt-header-font` and `rokt-footer-font` (both `#fdf6ec`) — named separately from `rokt-light` so header/footer text color can be changed independently later.
+  - **CSS variable gotcha:** Tailwind v4 `@theme` tokens are NOT reliably available via `var()` in inline styles. Fix: declare all tokens in both `@theme` AND `:root` in `globals.css`. See `brain/design-tokens.md` for full note.
+  - Built `code/components/Header.tsx` (client component — needs `usePathname`): sticky, `rokt-dark` bg, site title links to `/`, nav links with active green pill (`rokt-accent`) and pop-out hover animation (translateY -3px, scale 1.06, drop shadow).
+  - Built `code/components/Footer.tsx`: `rokt-dark` bg, centered single line — copyright, email link (green underline), Facebook + Twitter placeholder icons.
+  - Updated `code/app/layout.tsx`: imports Header + Footer, wraps `{children}` in a `margin: auto` flex div for automatic vertical centering — short pages center between header/footer, tall pages align top and scroll.
+  - Dev server port note: if port 3000 is already in use (e.g. a leftover node process from a prior session), Next.js auto-increments to 3001. Kill the stale process first (`netstat -ano | findstr :3000` to find PID, then `Stop-Process -Id <PID> -Force`) so `npm run dev` always claims 3000.
+
+---
+
+- **2026-06-21** — **Git initialized for ROKT.** Repo created and pushed to GitHub. Key details:
+  - GitHub account: `sivhold` (Geoff's personal account / Sivhold LLC)
+  - Repo URL: `https://github.com/sivhold/roots-of-knowledge.git`
+  - Branch: `main`
+  - Auth method: Personal Access Token (classic), `repo` scope only, stored in Geoff's password manager. Token is account-level (works across all sivhold repos). To push, use: `git push https://sivhold:TOKEN@github.com/sivhold/roots-of-knowledge.git main` — or configure Windows Credential Manager to cache it.
+  - `.gitignore` covers: `node_modules/`, `.next/`, `out/`, `.env*`, `.DS_Store`, `Thumbs.db`, `.vscode/`, Obsidian cache/workspace files.
+  - Old test repo (`rokt-hello-world`) still exists on GitHub/Cloudflare Pages — deliberately left as-is, not connected to this project.
+  - Next step: configure Windows Credential Manager so git remembers the token automatically (not yet done as of this entry).
+
+---
+
 - **2026-06-21** — **Phase B started early.** Geoff is switching to Claude Code now to begin actual Next.js implementation, ahead of the original ~10-month-out / WP.com-renewal-timed plan. Confirmed explicitly (not assumed) before updating `CLAUDE.md`'s "Two-phase plan & current status" section — Phase A (WordPress.com site) stays active in parallel, not paused. First concrete build step is `todo/todo-nextjs-migration.md` § 3 (scaffold via `npx create-next-app@latest` into `code/`).
 - **2026-06-21** — Decided Phase B scaffolding tool: **`npx create-next-app@latest`** (official Next.js scaffolder), flagged for App Router + TypeScript + Tailwind, run into `code/` when Phase B starts. Compared against cloning a Vercel template-gallery repo and against Claude hand-building the skeleton — official npx tool wins on staying current with Next.js conventions and avoiding manual-config risk. Full rationale in `brain/tech-stack-rationale.md`.
 - **2026-06-21** — Decided Phase B CSS tech: **Tailwind CSS** (Geoff already knows it from prior React work). Reopened and reconsidered against the newer 2023–2026 wave of zero-runtime CSS-in-JS tools (vanilla-extract, Panda CSS, Meta's StyleX) before confirming — rejected those because they add a build-time dependency/file convention beyond Tailwind, and Tailwind's "long class strings hurt maintainability" critique mainly applies at large/dynamic-component scale, not ROKT's small static site. Full comparison and rationale in `brain/tech-stack-rationale.md` (new file). Component library choice (shadcn/ui etc.) still open, deferred to Phase B scaffolding. CLAUDE.md's existing Phase B stack line already said Tailwind, so no change needed there — this entry documents that it was deliberately re-derived, not just inherited.

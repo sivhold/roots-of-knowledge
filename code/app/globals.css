@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* Tailwind v4 design tokens — makes colors available as Tailwind utility classes */
+@theme {
+  --color-rokt-dark:        #6b4a2b;
+  --color-rokt-card:        #9f7740;
+  --color-rokt-mid:         #c58f41;
+  --color-rokt-light:       #fdf6ec;
+  --color-rokt-accent:      #3d7a45;
+  --color-rokt-header-font: #fdf6ec;
+  --color-rokt-footer-font: #fdf6ec;
+}
+
+/* :root declaration — makes the same tokens available via var() everywhere in the app */
+:root {
+  --color-rokt-dark:        #6b4a2b;  /* deep brown — header bg, footer bg */
+  --color-rokt-card:        #9f7740;  /* warm sienna — card/box backgrounds */
+  --color-rokt-mid:         #c58f41;  /* golden amber — hero/page bg, accents */
+  --color-rokt-light:       #fdf6ec;  /* warm cream — text on dark, light surfaces */
+  --color-rokt-accent:      #3d7a45;  /* brand green — CTAs, hover states, links, focus rings */
+  --color-rokt-header-font: #fdf6ec;  /* header nav text — same value as rokt-light, named separately */
+  --color-rokt-footer-font: #fdf6ec;  /* footer text — same value as rokt-light, named separately */
+}
+
+body {
+  background-color: var(--color-rokt-mid);
+  color: var(--color-rokt-light);
+  font-family: Arial, Helvetica, sans-serif;
+}

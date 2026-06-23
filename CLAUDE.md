@@ -47,7 +47,7 @@ Top-level layout, decided 2026-06-20 to keep the project root from getting overl
 
 - Windows PC, PowerShell 7, VS Code.
 - Claude Code (VS Code) for coding; Claude Desktop/Cowork for planning/docs.
-- Git for Windows, public GitHub repo.
+- Git for Windows, public GitHub repo: `https://github.com/sivhold/roots-of-knowledge.git` (account: `sivhold`, branch: `main`).
 - Node.js v24+, npm; no GitHub Copilot.
 - Planned Next.js stack (Phase B only): App Router, static export, TypeScript, Tailwind, MDX, Vercel (portfolio) + Cloudflare Pages or Netlify (Carol's production).
 
