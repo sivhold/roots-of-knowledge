@@ -7,6 +7,32 @@ status: active
 
 Reference: colors and page structure derived from `brain/rokt-home-page-mockup.svg` and live site at https://roots-of-knowledge.com/. Visual tone: warm, community-focused, approachable.
 
+> **2026-07-06 redesign update:** Header, Footer, Home, and About were rebuilt from the Claude-Design handoff in `brain/redesign-handoff/` (supersedes the earlier hand-built versions). Checkboxes below are updated to match; some completed items were re-approached (e.g. active nav = underline not green pill; fonts = Lora + Source Sans 3). Fonts, `HoverLink` refactor, and Carol's real photo landed this session. See `MEMORY.md` (2026-07-06) and commits `91acb5f`/`099f6d2`/`8ec871b`. **Next page: Donate.**
+
+---
+
+## 0. Go-Live Roadmap (added 2026-07-06)
+
+Ordered path to launching the redesigned site. Strategy: finish the core pages, soft-launch with only completed pages visible in nav, then finish the rest and unhide them.
+
+### Build & fix (before soft launch)
+- [ ] Build the **Donate** page (see § 3g below) — last core page needed for launch ⏫
+- [ ] Add Home "In Person" stock photo — replaces the `photo · tutor + child, in person` placeholder 🔼
+- [ ] Add Home "Virtual" stock photo — replaces the `photo · virtual session on screen` placeholder 🔼
+- [ ] QA: make sure **all buttons/links work** and go to the correct pages ⏫
+- [ ] **Hide the Programs, Enroll, Impact, and Volunteer nav links** (Header § 2b) so the site can go live with only finished pages ⏫
+
+### Soft launch
+- [ ] Let **Carol review** the current version (https://roots-of-knowledge.pages.dev/) ⏫
+- [ ] **Transfer the domain** (`roots-of-knowledge.com`) from WordPress.com to the Cloudflare Pages site ⏫ — see also `todo-nextjs-migration.md`
+- [ ] **Let Carol know** the new redesign is ready/live 🔼
+
+### After launch — finish remaining pages, then unhide their nav links
+- [ ] Finish the **Programs** page (§ 3c) 🔼
+- [ ] Finish the **Enroll** page (§ 3d) 🔼
+- [ ] Finish the **Impact** page (§ 3e) 🔼
+- [ ] Finish the **Volunteer** page (§ 3f) 🔽
+
 ---
 
 ## 1. Color System & Design Tokens
@@ -31,29 +57,30 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 - [x] Set `<html>` background to `rokt-mid` (golden amber) as the base page color ✅ 2026-06-21
 - [x] Set default text color to `rokt-light` for dark-background sections ✅ 2026-06-21
 - [x] Import and render `<Header>` and `<Footer>` inside the root layout ✅ 2026-06-21
-- [x] Centering behavior: short pages center vertically between header/footer; tall pages align top and scroll — handled via `margin: auto` wrapper + `flex: 1` chain ✅ 2026-06-21
-- [ ] Add metadata: `title`, `description`, `og:image` (Carol's logo from `docs/`)
+- [x] ~~Centering behavior via `margin: auto` wrapper~~ — **removed 2026-07-06**: the vertical-centering wrapper only suited the old single-screen home; the redesigned multi-section pages flow from the top. `layout.tsx` now just `<main style={{ flex: 1 }}>`.
+- [ ] Add metadata: `title`, `description`, `og:image` (Carol's logo from `docs/`) — partial: `/about` has `title`+`description` (2026-07-06); home/layout still the create-next-app placeholder, `og:image` TODO
 - [ ] Create `code/app/layout.tsx.md` sidecar file
 
 ### 2b. Header (`code/components/Header.tsx`)
 - [x] Background: `rokt-dark` (`#6B4A2B`) ✅ 2026-06-21
-- [ ] Logo: ROKT logo image (from `docs/`) — link wraps logo, goes to `/` (text placeholder for now)
+- [x] Logo: ROKT logo image copied to `code/public/`, displayed in header linking to `/` ✅ 2026-06-22
 - [x] Nav links: About, Programs, Enroll, Impact, Volunteer, Donate — text `rokt-header-font` (= `rokt-light` #fdf6ec, named separately for flexibility) ✅ 2026-06-21
 - [x] "Roots of Knowledge Tutoring" site title links to `/` ✅ 2026-06-21
-- [x] Active page nav item: `rokt-accent` green background pill ✅ 2026-06-21
-- [x] Hover: pop-out animation (translateY -3px + scale 1.06 + shadow) ✅ 2026-06-21
+- [x] Active page nav item: **underline** (`text-underline-offset: 4px`) ✅ 2026-07-06 — redesign replaced the old green-pill active state
+- [x] Hover: **green background tint** `rgba(61,122,69,0.3)` ✅ 2026-07-06 — redesign replaced the old pop-out/scale animation
 - [x] Sticky header (stays at top on scroll) ✅ 2026-06-21
-- [ ] "Donate" nav link: consider filled button treatment (currently plain link matching live site — revisit)
-- [ ] Mobile: hamburger menu (collapsible nav) — use `useState` for open/close
+- [x] "Donate" nav link: filled **green pill** CTA (`rokt-accent`, radius 999px) ✅ 2026-07-06
+- [x] Logo lockup: two-line "Roots of Knowledge / TUTORING" wordmark (Lora + Source Sans 3); nav + Donate at 1.2rem ✅ 2026-07-06
+- [ ] Mobile: hamburger menu (collapsible nav) — use `useState` for open/close — **still TODO** (nav doesn't yet collapse on narrow screens)
 - [ ] Create `code/components/Header.tsx.md` sidecar file
 
 ### 2c. Footer (`code/components/Footer.tsx`)
 - [x] Background: `rokt-dark` (`#6B4A2B`) ✅ 2026-06-21
 - [x] Text color: `rokt-footer-font` (#fdf6ec, named separately from rokt-light for flexibility) ✅ 2026-06-21
-- [x] Content: copyright line, contact email, Facebook + Twitter placeholder icons ✅ 2026-06-21
+- [x] Content: copyright line, contact email, Facebook + X placeholder icons ✅ 2026-06-21
 - [ ] Nav echo: abbreviated set of links (About, Donate, Enroll) — deferred
-- [ ] Fix footer social icons: Facebook icon → blue (`#1877F2`), Twitter/X icon → blue (`#1DA1F2`); wire up real URLs when Carol confirms (placeholder `#` for now)
-- [ ] Update social URLs when Carol confirms
+- [x] Footer social icons: official brand marks — Facebook white "f" on `#1877F2`; **X white glyph on black** (X rebrand, replaces the old "Twitter blue #1DA1F2" plan) ✅ 2026-07-06
+- [ ] Update social URLs when Carol confirms (still `href="#"` placeholders)
 - [ ] Create `code/components/Footer.tsx.md` sidecar file
 
 ### 2d. Page Content Wrapper
@@ -66,15 +93,17 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 ## 3. Pages
 
 ### 3a. Home (`code/app/page.tsx`)
-- [ ] Hero section: logo centered, headline "Tutoring Sprinkled With Love" (italic serif), subheadline, two CTA buttons (Get Help → `/enroll`, Support Our Work → `/donate`)
-- [ ] Mission section: tinted band, 3–4 sentence mission statement
-- [ ] How We Work section: brief description of in-person + virtual tutoring
-- [ ] Be Part of It section: three audience cards (Get Help for Your Child → Enroll, Volunteer → Volunteer, Support Our Work → Donate)
+- [x] Hero section: full logo centered, Lora subheadline, two pill CTAs (Get Help for Your Child → `/enroll`, Support Our Work → `/donate`) ✅ 2026-07-06 (rebuilt in redesign)
+- [x] Mission band: eyebrow + Lora mission statement + "close gaps · confidence · empower families" line ✅ 2026-07-06
+- [x] How We Work section: In Person + Virtual cards (striped photo *placeholders* until real photos), "See how our programs work" CTA ✅ 2026-07-06
+- [x] Be Part of It section: three numbered cards → Enroll / Donate / Volunteer (design's "cards" variant) ✅ 2026-07-06
+- [ ] Swap How We Work striped photo placeholders for real photos when available
 - [ ] Create `code/app/page.tsx.md` sidecar file
 
-### 3b. About (`code/app/about/page.tsx`)
-- [ ] Sections: Founding Story (Carol's background), Mission Statement, Vision Statement, Core Values (4 principles)
-- [ ] Optional: photo of Carol (pending Carol providing one)
+### 3b. About (`code/app/about/page.tsx`) — ✅ built 2026-07-06
+- [x] Intro band + Founder Story ("Our Story" ×4 paras) + Mission & Vision cards + Core Values 2×2 + CTA band ✅ 2026-07-06
+- [x] Photo of Carol — she provided it → `public/carol-bluee.jpg` (sticky founder column, capped 320×400, face-focused `object-position`) ✅ 2026-07-06
+- [ ] Swap in a higher-res / portrait-oriented photo of Carol if she sends one (current is 290×297, near-square — upscaled + side-cropped)
 - [ ] Create `code/app/about/page.tsx.md` sidecar file
 
 ### 3c. Programs (`code/app/programs/page.tsx`)
@@ -96,7 +125,7 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 - [ ] Action: contact form or email link
 - [ ] Create `code/app/volunteer/page.tsx.md` sidecar file
 
-### 3g. Donate (`code/app/donate/page.tsx`)
+### 3g. Donate (`code/app/donate/page.tsx`) — ⏫ NEXT PAGE (2026-07-06); design spec in `brain/redesign-handoff/` (`Donate Page.dc.html` + README §5, incl. PayIcon badges + coming-soon modal)
 - [ ] Heading: "Support Our Work" (not "Donate" — per nav language rule in CLAUDE.md)
 - [ ] Intro copy: "Every child deserves to read with confidence…"
 - [ ] Payment methods — all additive, none replace the others:
@@ -121,7 +150,8 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 ## 5. CSS / Styling Decisions (pending)
 
 - [ ] Decide: component library or hand-built? (deferred from migration todo item 2) — recommended: hand-built with Tailwind for a site this size; revisit if forms become complex
-- [ ] Decide: serif font for headings (the mockup uses Georgia) — add via `next/font` or Google Fonts
+- [x] Fonts: **Lora** (headings + header wordmark) + **Source Sans 3** (body/nav/buttons) via `next/font/google`, exposed as CSS vars `--font-lora` / `--font-source-sans` ✅ 2026-07-06 (per redesign handoff; replaces the earlier Georgia idea)
+- [ ] Flip global `body` font-family to Source Sans 3 in `globals.css` (currently still Arial; home/about set it per-wrapper)
 - [ ] Add font decision to `brain/design-tokens.md`
 
 ---
@@ -141,4 +171,4 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 - [x] Confirm `code/next.config.ts` has `output: "export"` set ✅ 2026-06-21
 - [x] Confirm `npm run build` produces `out/` without errors ✅ 2026-06-21 — clean build, `index.html` confirmed in `out/`
 - [x] Agree on folder structure (`app/`, `components/`, `public/`) — confirmed via `create-next-app` defaults ✅ 2026-06-21
-- [ ] Move Carol's logo from `docs/` into `code/public/` when ready to use it in the app
+- [x] Move Carol's logo from `docs/` into `code/public/` when ready to use it in the app ✅ 2026-06-22

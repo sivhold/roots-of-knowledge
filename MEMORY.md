@@ -4,6 +4,31 @@ Running log of durable decisions and learnings, shared across Claude Cowork and 
 
 ---
 
+- **2026-07-06** — **Cloudflare Pages IS set up and auto-deploying** (corrects an earlier in-conversation assumption that it wasn't). Confirmed via a screenshot of the Cloudflare dashboard:
+  - Cloudflare account is under **Carol's email**: `Rootsofknowledgetutor@gmail.com`.
+  - Pages project **`roots-of-knowledge`** is connected to the `sivhold/roots-of-knowledge` GitHub repo and **auto-deploys on every push to `main`** (a push this session triggered a build within ~5 min).
+  - **Live preview URL: https://roots-of-knowledge.pages.dev/** — this is Cloudflare's default `.pages.dev` domain, NOT the custom domain. `roots-of-knowledge.com` still serves the WordPress.com site until the domain is deliberately cut over.
+  - Expected build config (standard for this static-export app; not re-verified in the dashboard this session): root directory `code`, build command `npm run build`, output directory `out`.
+  - The older **`rokt-hello-world`** Pages project also still exists (the throwaway test repo, ~17 days idle) — consistent with the 2026-06-21 git note; leave as-is.
+  - ⚠️ The 2026-06-21 "Phase B design session" entry below describes the *original* Header/Footer/layout (green active pill, pop-out hover, vertical-centering wrapper). Those were **replaced 2026-07-06** by the Claude-Design redesign handoff (`brain/redesign-handoff/`) — new Header, Footer, Home, and About pages. See git history (`91acb5f`, `099f6d2`, `8ec871b`) for the current implementation.
+
+---
+
+- **2026-07-06** — **Redesign session: Header, Footer, Home, and About rebuilt from the Claude-Design handoff.** Geoff redesigned the site in the Claude Design app; the handoff package now lives in `brain/redesign-handoff/` (README spec + `.dc.html` visual references + logo asset). It is a **design spec, not runnable code** — `.dc.html` files use a prototyping-tool templating syntax. Implemented it as real Next.js components, matching the codebase's inline-style convention and existing `rokt-*` CSS variables. What changed:
+  - **Fonts:** added **Lora** (headings + header wordmark) and **Source Sans 3** (body/nav/buttons) via `next/font/google`, exposed as CSS vars `--font-lora` / `--font-source-sans` in `layout.tsx` (replaced the leftover create-next-app Geist fonts). Global `body` font is still Arial — flip to Source Sans 3 in a later global pass.
+  - **Header:** 88px sticky bar; logo + two-line "Roots of Knowledge / TUTORING" wordmark; nav hover = green tint `rgba(61,122,69,0.3)`; **active state = underline** (replaced the old green pill); **Donate = green pill CTA**; nav + Donate sized to **1.2rem** (Geoff asked for larger). Dropped the old pop-out/scale hover.
+  - **Footer:** simplified centered layout (copyright · email · social), subtle `opacity:0.5` bullets, 1.2rem text. Social icons swapped to **official brand marks in brand colors** — Facebook white "f" on `#1877F2`, **X white glyph on black** (note: X is black now, superseding the todo's old "Twitter blue #1DA1F2"). Still `href="#"` placeholders until Carol provides real URLs.
+  - **Home (`app/page.tsx`):** rebuilt as 4 stacked sections — Hero (gradient, logo, Lora subheadline, Get Help + Support Our Work CTAs), Mission band, How We Work (In Person / Virtual cards with striped photo *placeholders*), Be Part of It (3 numbered cards → Enroll/Donate/Volunteer). Shipped the design's "cards" variant.
+  - **About (`app/about/page.tsx`, new `/about` route):** Intro, Founder Story (Carol's real photo + "Our Story" ×4 paras), Mission & Vision cards, Core Values 2×2, CTA band. Added `metadata` title/description.
+  - **Carol's photo:** she provided one → `public/carol-bluee.jpg` (290×297, ~42KB, near-square). **Kept as JPEG** — static export (`images.unoptimized`) serves it untouched, so conversion offers no real gain; a higher-res portrait would drop in cleanly later. Fold fix (industry-standard): capped display to 320×400, `object-position: center 30%` (face focal point), and trimmed intro/founder vertical padding so the full portrait clears the fold on landing instead of showing just her forehead.
+  - **Refactor:** extracted the hover-button helper into `components/HoverLink.tsx` (shared by Home + About); **Home became a server component** as a result. Fixed a React 19 warning by switching the `textDecoration` shorthand → `textDecorationLine` longhand in Header/Footer/HoverLink.
+  - **Tooling:** added `.claude/launch.json` (dev preview: `npm --prefix code run dev`, port 3000); gitignored machine-local `.claude/settings.local.json`.
+  - **Commits (all on `main`, pushed):** `91acb5f` header/footer · `099f6d2` home · `8ec871b` about. Auto-deployed live to https://roots-of-knowledge.pages.dev/ (verified `/about` serving the redesign).
+  - **Deliberately left uncommitted:** pre-existing edits to `CLAUDE.md`, `brain/tech-stack-rationale.md`, and the three `todo/*.md` files (predate this session; kept out of the redesign commits).
+  - **Next:** Donate page (the most interactive — amount picker, payment cards, coming-soon modal, PayIcon badges). Sidecar `.md` docs for the new/changed code files are still outstanding (tracked in `todo-nextjs-design.md`).
+
+---
+
 - **2026-06-21** — **Phase B design session: color system + global layout complete.** Full session summary:
   - Picked `rokt-accent: #3d7a45` — sourced from Carol's existing flyer (section headers, icons, callout boxes). Confirmed same green also appears in logo underline/wordmark. Documented in `brain/design-tokens.md`.
   - Added two new named font tokens — `rokt-header-font` and `rokt-footer-font` (both `#fdf6ec`) — named separately from `rokt-light` so header/footer text color can be changed independently later.

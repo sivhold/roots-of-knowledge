@@ -46,7 +46,7 @@ Active build tasks currently tracked in the Todoist project "Roots-of-Knowledge"
 
 ## Waiting on Carol
 
-- [ ] Confirm Stripe — once confirmed, add credit/debit card section to Donate page
+- [ ] Confirm Stripe — once confirmed, add credit/debit card section to Donate page (design decision: use a "Donate with Card" button, not a Stripe logo/icon — see Notes)
 - [ ] Venmo handle
 - [ ] Zelle contact details
 - [ ] Real social media URLs
@@ -54,3 +54,4 @@ Active build tasks currently tracked in the Todoist project "Roots-of-Knowledge"
 ## Notes
 
 - Geoff drafted a message to Carol about eventually transitioning the site from WordPress.com to a more professional TypeScript/React/Next.js setup (Phase B), offering to work at whatever technical level suits her — sent/pending, no reply logged yet.
+- **Design decision — Stripe button, not Stripe icon (2026-07-01):** unlike Zelle/Cash App/Venmo/PayPal, Stripe isn't consumer-facing — donors don't have "Stripe accounts," so a clickable Stripe logo would confuse rather than clarify. When Stripe is added, use a generic **"Donate with Card"** button (linking to a Stripe Payment Link) styled to match the other donation icons, optionally with small Visa/Mastercard/Amex or Apple Pay/Google Pay icons next to it. A small "Powered by Stripe" badge is allowed under Stripe's brand guidelines for trust signaling, but should stay fine-print, not the primary CTA.

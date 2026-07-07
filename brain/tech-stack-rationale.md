@@ -49,6 +49,17 @@ trigger.
 **Component library:** Not yet decided — deferred until Phase B scaffolding begins.
 See `todo/todo-nextjs-migration.md` § 3.
 
+## Dev Environment & Deployment Pipeline (confirmed 2026-06-28)
+
+- **Working directory:** All project files live in `C:\Users\gvd10\OneDrive\Desktop\ROKT`
+- **IDE / coding tool:** Claude Code desktop app (primary); may migrate to VS Code + Claude Code extension, launched from a PowerShell window or VS Code's integrated PowerShell terminal
+- **Version control:** Git (local)
+- **Remote:** GitHub — code pushed and kept in sync there
+- **Deployment:** Cloudflare Pages, deploying automatically from GitHub
+- **Hosting:** Cloudflare Pages (free tier) — Carol's production host for the Next.js site
+
+---
+
 ## Scaffolding: `create-next-app` (decided 2026-06-21)
 
 **Decision:** Generate the Phase B project skeleton with

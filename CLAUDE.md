@@ -26,6 +26,7 @@ Three goals, in order: (1) a real, working website for Carol, (2) a strong portf
 
 - **Phase A (active):** Finish the WordPress.com site — Carol needs to operate now. See `todo/todo-master.md` → `todo/todo-phase-a-website.md`. Continues in parallel with Phase B below — not paused or deprioritized.
 - **Phase B (active as of 2026-06-21, ahead of original schedule):** Migrate to Next.js static export. Originally planned to start ~10 months out (near the WordPress.com renewal), but Geoff confirmed an early start on 2026-06-21 — coding work begins now in Claude Code. See `todo/todo-nextjs-migration.md` and `todo/todo-copy-wordpress-content.md`. Static export is confirmed as the right call — ROKT has no SSR use cases — with a clean path to add user accounts later without a rewrite. At handoff, add a Git-based CMS (Decap or TinaCMS) so Carol can edit content herself without touching code.
+  - **Progress (2026-07-06):** Cloudflare Pages is live and auto-deploys `main` → https://roots-of-knowledge.pages.dev/ (still the `.pages.dev` URL; `roots-of-knowledge.com` stays on WordPress until domain cutover). The site is being rebuilt from a **Claude-Design redesign handoff** in `brain/redesign-handoff/` — **Header, Footer, Home, and About are done**; **Donate is next**. Fonts are now Lora + Source Sans 3. See `MEMORY.md` (2026-07-06) for the full breakdown.
 
 ## Folder & file structure
 
@@ -49,7 +50,7 @@ Top-level layout, decided 2026-06-20 to keep the project root from getting overl
 - Claude Code (VS Code) for coding; Claude Desktop/Cowork for planning/docs.
 - Git for Windows, public GitHub repo: `https://github.com/sivhold/roots-of-knowledge.git` (account: `sivhold`, branch: `main`).
 - Node.js v24+, npm; no GitHub Copilot.
-- Planned Next.js stack (Phase B only): App Router, static export, TypeScript, Tailwind, MDX, Vercel (portfolio) + Cloudflare Pages or Netlify (Carol's production).
+- Planned Next.js stack (Phase B only): App Router, static export, TypeScript, Tailwind, MDX, Vercel (portfolio) + Cloudflare Pages (Carol's production, confirmed 2026-06-28 — free tier, deploys from GitHub).
 
 ## Todo system
 
