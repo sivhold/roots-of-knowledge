@@ -1,37 +1,5 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-
-/**
- * A next/link that swaps in a set of hover style overrides while the pointer is
- * over it — the redesign uses several buttons that darken and/or lift on hover,
- * and inline styles can't express :hover, so we track it in state.
- */
-function HoverLink({
-  href,
-  base,
-  hover,
-  children,
-}: {
-  href: string;
-  base: React.CSSProperties;
-  hover: React.CSSProperties;
-  children: React.ReactNode;
-}) {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <Link
-      href={href}
-      style={{ textDecorationLine: "none", ...base, ...(hovered ? hover : {}) }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {children}
-    </Link>
-  );
-}
+import HoverLink from "@/components/HoverLink";
 
 /** Striped stand-in shown until real photography is available. */
 function PhotoPlaceholder({ label }: { label: string }) {
