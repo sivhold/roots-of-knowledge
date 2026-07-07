@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { text-decoration: none; }
+  </style>
+</helmet>
+
+<div style="width:100%; min-height:100%; background:#fdf6ec; font-family:'Source Sans 3', Arial, Helvetica, sans-serif; color:#3b2a14; overflow-x:hidden;">
+
+  <!-- ============ HEADER ============ -->
+  <header data-screen-label="Header" style="position:sticky; top:0; z-index:50; background:#6b4a2b; color:#fdf6ec;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 2rem; height:88px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="/" style="display:flex; align-items:center; gap:0.85rem; color:#fdf6ec;">
+        <img src="assets/rokt-logo-full.png" alt="Roots of Knowledge Tutoring" style="height:62px; width:auto; object-fit:contain;">
+        <span style="font-family:'Lora', Georgia, serif; font-weight:600; font-size:1.25rem; letter-spacing:0.02em; line-height:1.1;">Roots&nbsp;of&nbsp;Knowledge<br><span style="font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase; opacity:0.8; font-family:'Source Sans 3',sans-serif;">Tutoring</span></span>
+      </a>
+      <nav style="display:flex; gap:0.4rem; align-items:center;">
+        <a href="/about" style="color:#fdf6ec; font-size:1.05rem; padding:0.45rem 0.9rem; border-radius:6px;" style-hover="background:rgba(61,122,69,0.3);">About</a>
+        <a href="/programs" style="color:#fdf6ec; font-size:1.05rem; padding:0.45rem 0.9rem; border-radius:6px;" style-hover="background:rgba(61,122,69,0.3);">Programs</a>
+        <a href="/enroll" style="color:#fdf6ec; font-size:1.05rem; padding:0.45rem 0.9rem; border-radius:6px;" style-hover="background:rgba(61,122,69,0.3);">Enroll</a>
+        <a href="/impact" style="color:#fdf6ec; font-size:1.05rem; padding:0.45rem 0.9rem; border-radius:6px;" style-hover="background:rgba(61,122,69,0.3);">Impact</a>
+        <a href="/volunteer" style="color:#fdf6ec; font-size:1.05rem; padding:0.45rem 0.9rem; border-radius:6px;" style-hover="background:rgba(61,122,69,0.3);">Volunteer</a>
+        <a href="/donate" style="color:#fdf6ec; font-size:1.05rem; padding:0.45rem 1.3rem; border-radius:999px; background:#3d7a45; font-weight:600; margin-left:0.5rem;" style-hover="background:#34693c;">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section data-screen-label="Hero" style="background:linear-gradient(180deg,#fdf6ec 0%,#f6e8cd 55%,#efdcb6 100%); padding:3rem 2rem 4rem; text-align:center;">
+    <div style="max-width:760px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:1.5rem;">
+      <img src="assets/rokt-logo-full.png" alt="Roots of Knowledge Tutoring — Tutoring Sprinkled With Love" style="width:340px; max-width:80%; height:auto; object-fit:contain;">
+      <p style="font-family:'Lora', Georgia, serif; font-size:1.7rem; line-height:1.4; color:#4a3318; margin:0; max-width:680px; text-wrap:balance;">Free, culturally responsive reading instruction for children in underserved communities across Los Angeles County.</p>
+      <div style="display:flex; gap:1.25rem; flex-wrap:wrap; justify-content:center; margin-top:0.5rem;">
+        <a href="/enroll" style="padding:1rem 2.4rem; border-radius:999px; background:#3d7a45; color:#fdf6ec; font-size:1.15rem; font-weight:600; box-shadow:0 6px 18px rgba(61,122,69,0.32);" style-hover="background:#34693c; transform:translateY(-2px);">Get Help for Your Child</a>
+        <a href="/donate" style="padding:1rem 2.4rem; border-radius:999px; background:transparent; color:#5a3d1e; border:2px solid #5a3d1e; font-size:1.15rem; font-weight:600;" style-hover="background:#5a3d1e; color:#fdf6ec;">Support Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MISSION BAND ============ -->
+  <sc-if value="{{ showMission }}" hint-placeholder-val="{{ true }}">
+  <section data-screen-label="Mission" style="background:#c58f41; color:#fdf6ec; padding:4rem 2rem; text-align:center;">
+    <div style="max-width:860px; margin:0 auto;">
+      <span style="display:inline-block; font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; opacity:0.85; margin-bottom:1rem;">Our Mission</span>
+      <p style="font-family:'Lora', Georgia, serif; font-size:1.85rem; line-height:1.45; margin:0 0 1.5rem; text-wrap:balance;">We believe every child deserves to read with confidence — and to see themselves reflected in what they read. We provide free, high-quality reading tutoring to children in grades K–5.</p>
+      <p style="font-size:1.2rem; font-weight:600; letter-spacing:0.01em; margin:0; opacity:0.95;">We close literacy gaps&nbsp;&middot;&nbsp;We strengthen academic confidence&nbsp;&middot;&nbsp;We empower families</p>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ============ HOW WE WORK ============ -->
+  <section data-screen-label="How We Work" style="background:#fdf6ec; padding:5rem 2rem;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div style="text-align:center; max-width:720px; margin:0 auto 3rem;">
+        <span style="display:inline-block; font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; color:#3d7a45; margin-bottom:0.9rem;">How We Work</span>
+        <h2 style="font-family:'Lora', Georgia, serif; font-size:2.4rem; line-height:1.2; margin:0 0 1rem; color:#4a3318;">Tutoring that meets families where they are</h2>
+        <p style="font-size:1.2rem; line-height:1.6; margin:0; color:#5a4a32;">Choose what fits your family best. Small groups and one-on-one — always with focused attention from tutors who care.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
+        <!-- In person -->
+        <div style="background:#fff; border:1px solid #ead9bb; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(107,74,43,0.08); display:flex; flex-direction:column;">
+          <sc-if value="{{ showPhotos }}" hint-placeholder-val="{{ true }}">
+            <div style="height:200px; background:repeating-linear-gradient(45deg,#e9d7b4,#e9d7b4 14px,#e2cca1 14px,#e2cca1 28px); display:flex; align-items:center; justify-content:center;">
+              <span style="font-family:'Source Code Pro',monospace; font-size:0.8rem; color:#8a6d3f; background:rgba(253,246,236,0.85); padding:0.4rem 0.8rem; border-radius:6px;">photo · tutor + child, in person</span>
+            </div>
+          </sc-if>
+          <div style="padding:2rem;">
+            <h3 style="font-family:'Lora', Georgia, serif; font-size:1.55rem; margin:0 0 0.75rem; color:#3d7a45;">In Person</h3>
+            <p style="font-size:1.1rem; line-height:1.6; margin:0; color:#5a4a32;">We meet at trusted community centers, churches, and libraries near you — bringing reading support right into the neighborhoods that need it most.</p>
+          </div>
+        </div>
+        <!-- Virtual -->
+        <div style="background:#fff; border:1px solid #ead9bb; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(107,74,43,0.08); display:flex; flex-direction:column;">
+          <sc-if value="{{ showPhotos }}" hint-placeholder-val="{{ true }}">
+            <div style="height:200px; background:repeating-linear-gradient(45deg,#e9d7b4,#e9d7b4 14px,#e2cca1 14px,#e2cca1 28px); display:flex; align-items:center; justify-content:center;">
+              <span style="font-family:'Source Code Pro',monospace; font-size:0.8rem; color:#8a6d3f; background:rgba(253,246,236,0.85); padding:0.4rem 0.8rem; border-radius:6px;">photo · virtual session on screen</span>
+            </div>
+          </sc-if>
+          <div style="padding:2rem;">
+            <h3 style="font-family:'Lora', Georgia, serif; font-size:1.55rem; margin:0 0 0.75rem; color:#3d7a45;">Virtual</h3>
+            <p style="font-size:1.1rem; line-height:1.6; margin:0; color:#5a4a32;">Prefer to learn from home? Live online sessions give your child the same caring, focused instruction on a schedule that works for you.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:2.75rem;">
+        <a href="/programs" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.9rem 2rem; border-radius:999px; background:#5a3d1e; color:#fdf6ec; font-size:1.1rem; font-weight:600;" style-hover="background:#48300f; transform:translateY(-2px);">See how our programs work&nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BE PART OF IT ============ -->
+  <section data-screen-label="Be Part of It" style="background:#6b4a2b; color:#fdf6ec; padding:5rem 2rem;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div style="text-align:center; max-width:640px; margin:0 auto 3rem;">
+        <h2 style="font-family:'Lora', Georgia, serif; font-size:2.6rem; line-height:1.15; margin:0 0 1rem;">Be Part of It</h2>
+        <p style="font-size:1.2rem; line-height:1.6; margin:0; opacity:0.9;">Every confident young reader is the work of a whole community. Here's how you can help build one.</p>
+      </div>
+
+      <!-- CARDS STYLE -->
+      <sc-if value="{{ isCards }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem;">
+        <div style="background:#9f7740; border-radius:16px; padding:2.25rem 1.85rem; display:flex; flex-direction:column; gap:1rem; box-shadow:0 10px 26px rgba(0,0,0,0.18);">
+          <div style="width:56px; height:56px; border-radius:14px; background:rgba(253,246,236,0.16); display:flex; align-items:center; justify-content:center; font-family:'Lora',serif; font-size:1.6rem; color:#fdf6ec;">1</div>
+          <h3 style="font-family:'Lora', Georgia, serif; font-size:1.5rem; margin:0; color:#fdf6ec;">Enroll Your Child</h3>
+          <p style="font-size:1.05rem; line-height:1.55; margin:0; flex:1; color:#fdf6ec; opacity:0.92;">Free reading tutoring for children in grades K–5. Reserve your child's spot today.</p>
+          <a href="/enroll" style="margin-top:0.5rem; text-align:center; padding:0.85rem 1.5rem; border-radius:999px; background:#3d7a45; color:#fdf6ec; font-size:1.05rem; font-weight:600;" style-hover="background:#34693c;">Enroll Your Child</a>
+        </div>
+        <div style="background:#9f7740; border-radius:16px; padding:2.25rem 1.85rem; display:flex; flex-direction:column; gap:1rem; box-shadow:0 10px 26px rgba(0,0,0,0.18);">
+          <div style="width:56px; height:56px; border-radius:14px; background:rgba(253,246,236,0.16); display:flex; align-items:center; justify-content:center; font-family:'Lora',serif; font-size:1.6rem; color:#fdf6ec;">2</div>
+          <h3 style="font-family:'Lora', Georgia, serif; font-size:1.5rem; margin:0; color:#fdf6ec;">Donate</h3>
+          <p style="font-size:1.05rem; line-height:1.55; margin:0; flex:1; color:#fdf6ec; opacity:0.92;">Your gift puts books and caring tutors in front of the kids who need them most.</p>
+          <a href="/donate" style="margin-top:0.5rem; text-align:center; padding:0.85rem 1.5rem; border-radius:999px; background:#3d7a45; color:#fdf6ec; font-size:1.05rem; font-weight:600;" style-hover="background:#34693c;">Donate</a>
+        </div>
+        <div style="background:#9f7740; border-radius:16px; padding:2.25rem 1.85rem; display:flex; flex-direction:column; gap:1rem; box-shadow:0 10px 26px rgba(0,0,0,0.18);">
+          <div style="width:56px; height:56px; border-radius:14px; background:rgba(253,246,236,0.16); display:flex; align-items:center; justify-content:center; font-family:'Lora',serif; font-size:1.6rem; color:#fdf6ec;">3</div>
+          <h3 style="font-family:'Lora', Georgia, serif; font-size:1.5rem; margin:0; color:#fdf6ec;">Volunteer</h3>
+          <p style="font-size:1.05rem; line-height:1.55; margin:0; flex:1; color:#fdf6ec; opacity:0.92;">Share your time. Become a tutor and help a young reader find their confidence.</p>
+          <a href="/volunteer" style="margin-top:0.5rem; text-align:center; padding:0.85rem 1.5rem; border-radius:999px; background:#3d7a45; color:#fdf6ec; font-size:1.05rem; font-weight:600;" style-hover="background:#34693c;">Volunteer</a>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- BUTTONS STYLE -->
+      <sc-if value="{{ isButtons }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center;">
+        <a href="/enroll" style="flex:1; min-width:240px; max-width:320px; text-align:center; padding:1.5rem 1.75rem; border-radius:14px; background:#3d7a45; color:#fdf6ec; font-size:1.3rem; font-weight:600; box-shadow:0 10px 26px rgba(0,0,0,0.18);" style-hover="transform:translateY(-3px);">Enroll Your Child</a>
+        <a href="/donate" style="flex:1; min-width:240px; max-width:320px; text-align:center; padding:1.5rem 1.75rem; border-radius:14px; background:#3d7a45; color:#fdf6ec; font-size:1.3rem; font-weight:600; box-shadow:0 10px 26px rgba(0,0,0,0.18);" style-hover="transform:translateY(-3px);">Donate</a>
+        <a href="/volunteer" style="flex:1; min-width:240px; max-width:320px; text-align:center; padding:1.5rem 1.75rem; border-radius:14px; background:#3d7a45; color:#fdf6ec; font-size:1.3rem; font-weight:600; box-shadow:0 10px 26px rgba(0,0,0,0.18);" style-hover="transform:translateY(-3px);">Volunteer</a>
+      </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer data-screen-label="Footer" style="background:#6b4a2b; color:#fdf6ec; padding:2.25rem 2rem;">
+    <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; font-size:1.05rem;">
+      <span>© 2026 Roots of Knowledge Tutoring.</span>
+      <span style="opacity:0.5;">•</span>
+      <span>Contact: <a href="mailto:rootsofknowledgetutor@gmail.com" style="color:#fdf6ec; text-decoration:underline; text-underline-offset:3px;">rootsofknowledgetutor@gmail.com</a></span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;bePartStyle&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;cards&quot;, &quot;buttons&quot;], &quot;default&quot;: &quot;cards&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Be Part of It&quot; },
+  &quot;showPhotos&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;How We Work&quot; },
+  &quot;showMission&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Sections&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const bePartStyle = this.props.bePartStyle ?? 'cards';
+    return {
+      showMission: this.props.showMission ?? true,
+      showPhotos: this.props.showPhotos ?? true,
+      isCards: bePartStyle === 'cards',
+      isButtons: bePartStyle === 'buttons',
+    };
+  }
+}
+</script>
+</body>
+</html>

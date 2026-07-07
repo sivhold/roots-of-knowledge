@@ -10,7 +10,6 @@ const navLinks = [
   { label: "Enroll", href: "/enroll" },
   { label: "Impact", href: "/impact" },
   { label: "Volunteer", href: "/volunteer" },
-  { label: "Donate", href: "/donate" },
 ];
 
 export default function Header() {
@@ -28,73 +27,118 @@ export default function Header() {
     >
       <div
         style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
           padding: "0 2rem",
-          height: "120px",
+          height: "88px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
         }}
       >
+        {/* Logo lockup — logo image + two-line wordmark */}
         <Link
           href="/"
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "0.75rem",
+            gap: "0.85rem",
             color: "var(--color-rokt-header-font)",
             textDecoration: "none",
-            fontWeight: 700,
-            fontSize: "1.65rem",
-            letterSpacing: "0.05em",
-            textTransform: "uppercase",
           }}
         >
           <Image
-            src="/full-logo-trimmed.jpg"
+            src="/fulllogo-transparent-trimmed-bg.png"
             alt="Roots of Knowledge Tutoring logo"
-            width={108}
-            height={108}
-            style={{ objectFit: "contain" }}
+            width={910}
+            height={881}
+            priority
+            style={{ height: "62px", width: "auto", objectFit: "contain" }}
           />
-          Roots of Knowledge Tutoring
+          <span
+            style={{
+              fontFamily: "var(--font-lora), Georgia, serif",
+              fontWeight: 600,
+              fontSize: "1.25rem",
+              letterSpacing: "0.02em",
+              lineHeight: 1.1,
+            }}
+          >
+            Roots&nbsp;of&nbsp;Knowledge
+            <br />
+            <span
+              style={{
+                fontFamily: "var(--font-source-sans), Arial, Helvetica, sans-serif",
+                fontSize: "0.8rem",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                opacity: 0.8,
+              }}
+            >
+              Tutoring
+            </span>
+          </span>
         </Link>
 
-        <nav style={{ display: "flex", gap: "0.25rem", alignItems: "center", paddingRight: "1rem" }}>
+        {/* Primary navigation */}
+        <nav style={{ display: "flex", gap: "0.4rem", alignItems: "center" }}>
           {navLinks.map(({ label, href }) => {
             const isActive = pathname === href;
             return (
               <Link
                 key={href}
                 href={href}
+                aria-current={isActive ? "page" : undefined}
                 style={{
                   color: "var(--color-rokt-header-font)",
-                  textDecoration: "none",
-                  fontSize: "1.425rem",
-                  padding: "0.4rem 0.85rem",
+                  fontFamily: "var(--font-source-sans), Arial, Helvetica, sans-serif",
+                  textDecoration: isActive ? "underline" : "none",
+                  textUnderlineOffset: "4px",
+                  fontSize: "1.2rem",
+                  padding: "0.45rem 0.9rem",
                   borderRadius: "6px",
-                  backgroundColor: isActive ? "var(--color-rokt-accent)" : "transparent",
-                  transition: "transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease",
-                  display: "inline-block",
+                  backgroundColor: "transparent",
+                  transition: "background-color 0.15s ease",
                 }}
                 onMouseEnter={(e) => {
-                  if (!isActive) {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(61,122,69,0.25)";
-                  }
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(-3px) scale(1.06)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 12px rgba(0,0,0,0.25)";
+                  (e.currentTarget as HTMLElement).style.backgroundColor =
+                    "rgba(61,122,69,0.3)";
                 }}
                 onMouseLeave={(e) => {
-                  if (!isActive) {
-                    (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-                  }
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(0) scale(1)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                  (e.currentTarget as HTMLElement).style.backgroundColor =
+                    "transparent";
                 }}
               >
                 {label}
               </Link>
             );
           })}
+
+          {/* Donate — visually distinct green pill CTA */}
+          <Link
+            href="/donate"
+            style={{
+              color: "var(--color-rokt-header-font)",
+              fontFamily: "var(--font-source-sans), Arial, Helvetica, sans-serif",
+              textDecoration: "none",
+              fontSize: "1.2rem",
+              fontWeight: 600,
+              padding: "0.45rem 1.3rem",
+              borderRadius: "999px",
+              backgroundColor: "var(--color-rokt-accent)",
+              marginLeft: "0.5rem",
+              transition: "background-color 0.15s ease",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor = "#34693c";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.backgroundColor =
+                "var(--color-rokt-accent)";
+            }}
+          >
+            Donate
+          </Link>
         </nav>
       </div>
     </header>

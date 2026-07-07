@@ -4,24 +4,25 @@ export default function Footer() {
       style={{
         backgroundColor: "var(--color-rokt-dark)",
         color: "var(--color-rokt-footer-font)",
+        padding: "2.25rem 2rem",
       }}
     >
       <div
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "0 1.5rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           gap: "1rem",
-          fontSize: "1.3rem",
           flexWrap: "wrap",
+          fontFamily: "var(--font-source-sans), Arial, Helvetica, sans-serif",
+          fontSize: "1.2rem",
         }}
       >
         <span>© 2026 Roots of Knowledge Tutoring.</span>
 
-        <span style={{ fontSize: "2rem", color: "var(--color-rokt-footer-font)" }}>•</span>
+        <span style={{ opacity: 0.5 }}>•</span>
 
         <span>
           Contact:{" "}
@@ -30,7 +31,6 @@ export default function Footer() {
             style={{
               color: "var(--color-rokt-footer-font)",
               textDecoration: "underline",
-              textDecorationColor: "var(--color-rokt-footer-font)",
               textUnderlineOffset: "3px",
             }}
           >
@@ -38,25 +38,29 @@ export default function Footer() {
           </a>
         </span>
 
-        <span style={{ fontSize: "2rem", color: "var(--color-rokt-footer-font)" }}>•</span>
+        <span style={{ opacity: 0.5 }}>•</span>
 
+        {/* Social links — href="#" placeholders until Carol provides real URLs.
+            Official brand marks in their brand colors: Facebook white "f" on
+            #1877F2, X white glyph on black. */}
         <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-          <a
-            href="#"
-            aria-label="Facebook"
-            style={{ color: "var(--color-rokt-footer-font)", opacity: 0.85 }}
-          >
-            <svg width="27" height="27" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+          <a href="#" aria-label="Facebook" style={{ display: "inline-flex" }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="12" fill="#1877F2" />
+              <path
+                fill="#fff"
+                d="M16.671 15.469l.532-3.469h-3.328V9.749c0-.949.465-1.874 1.956-1.874h1.513V4.922s-1.374-.235-2.686-.235c-2.741 0-4.533 1.662-4.533 4.669V12H6.877v3.469h3.047v8.385a12.13 12.13 0 0 0 3.751 0v-8.385h2.796z"
+              />
             </svg>
           </a>
-          <a
-            href="#"
-            aria-label="Twitter / X"
-            style={{ color: "var(--color-rokt-footer-font)", opacity: 0.85 }}
-          >
-            <svg width="27" height="27" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M4 4l16 16M20 4 4 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"/>
+          <a href="#" aria-label="X" style={{ display: "inline-flex" }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="12" fill="#000000" />
+              <path
+                fill="#fff"
+                transform="translate(4.56 4.56) scale(0.62)"
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
             </svg>
           </a>
         </div>
