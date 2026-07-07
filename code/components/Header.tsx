@@ -44,7 +44,7 @@ export default function Header() {
             alignItems: "center",
             gap: "0.85rem",
             color: "var(--color-rokt-header-font)",
-            textDecoration: "none",
+            textDecorationLine: "none",
           }}
         >
           <Image
@@ -92,7 +92,7 @@ export default function Header() {
                 style={{
                   color: "var(--color-rokt-header-font)",
                   fontFamily: "var(--font-source-sans), Arial, Helvetica, sans-serif",
-                  textDecoration: isActive ? "underline" : "none",
+                  textDecorationLine: isActive ? "underline" : "none",
                   textUnderlineOffset: "4px",
                   fontSize: "1.2rem",
                   padding: "0.45rem 0.9rem",
@@ -120,7 +120,7 @@ export default function Header() {
             style={{
               color: "var(--color-rokt-header-font)",
               fontFamily: "var(--font-source-sans), Arial, Helvetica, sans-serif",
-              textDecoration: "none",
+              textDecorationLine: "none",
               fontSize: "1.2rem",
               fontWeight: 600,
               padding: "0.45rem 1.3rem",

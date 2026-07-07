@@ -30,7 +30,7 @@ export default function Footer() {
             href="mailto:rootsofknowledgetutor@gmail.com"
             style={{
               color: "var(--color-rokt-footer-font)",
-              textDecoration: "underline",
+              textDecorationLine: "underline",
               textUnderlineOffset: "3px",
             }}
           >

@@ -37,11 +37,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Header />
-        <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          <div style={{ marginTop: "auto", marginBottom: "auto", width: "100%", display: "flex", flexDirection: "column", flex: 1 }}>
-            {children}
-          </div>
-        </main>
+        <main style={{ flex: 1 }}>{children}</main>
         <Footer />
       </body>
     </html>
