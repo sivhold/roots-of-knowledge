@@ -1,45 +1,31 @@
 import Image from "next/image";
 import HoverLink from "@/components/HoverLink";
 
-/** Striped stand-in shown until real photography is available. */
-function PhotoPlaceholder({ label }: { label: string }) {
-  return (
-    <div
-      style={{
-        height: "200px",
-        background:
-          "repeating-linear-gradient(45deg,#e9d7b4,#e9d7b4 14px,#e2cca1 14px,#e2cca1 28px)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <span
-        style={{
-          fontFamily: "monospace",
-          fontSize: "0.8rem",
-          color: "#8a6d3f",
-          background: "rgba(253,246,236,0.85)",
-          padding: "0.4rem 0.8rem",
-          borderRadius: "6px",
-        }}
-      >
-        {label}
-      </span>
-    </div>
-  );
-}
-
+// Stock photos from Pexels (free license, no attribution required).
+// objectPosition tunes which vertical band of each photo shows in the
+// 280px card crop so faces (and the book being read) stay in frame.
 const programs = [
   {
     title: "In Person",
     body: "We meet at trusted community centers, churches, and libraries near you — bringing reading support right into the neighborhoods that need it most.",
-    photo: "photo · tutor + child, in person",
+    photo: {
+      src: "/home-tutoring-in-person.jpg", // Pexels #8342266 — tutor reading with a boy and his mom in a library
+      alt: "A tutor reading a book with a young boy and his mother at a library table",
+      width: 1200,
+      height: 801,
+      objectPosition: "50% 62%",
+    },
   },
   {
     title: "Virtual",
     body: "Prefer to learn from home? Live online sessions give your child the same caring, focused instruction on a schedule that works for you.",
-    photo: "photo · virtual session on screen",
+    photo: {
+      src: "/home-tutoring-virtual.jpg", // Pexels #5905688 — boy in a live video session with his tutor
+      alt: "A young boy at a desk in a live video session with his tutor on a laptop",
+      width: 1200,
+      height: 800,
+      objectPosition: "50% 12%",
+    },
   },
 ];
 
@@ -258,7 +244,18 @@ export default function Home() {
                   flexDirection: "column",
                 }}
               >
-                <PhotoPlaceholder label={photo} />
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={photo.width}
+                  height={photo.height}
+                  style={{
+                    width: "100%",
+                    height: "280px",
+                    objectFit: "cover",
+                    objectPosition: photo.objectPosition,
+                  }}
+                />
                 <div style={{ padding: "2rem" }}>
                   <h3
                     style={{

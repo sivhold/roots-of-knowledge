@@ -17,8 +17,8 @@ Ordered path to launching the redesigned site. Strategy: finish the core pages, 
 
 ### Build & fix (before soft launch)
 - [ ] Build the **Donate** page (see § 3g below) — last core page needed for launch ⏫
-- [ ] Add Home "In Person" stock photo — replaces the `photo · tutor + child, in person` placeholder 🔼
-- [ ] Add Home "Virtual" stock photo — replaces the `photo · virtual session on screen` placeholder 🔼
+- [x] Add Home "In Person" stock photo — Pexels #8342266 (tutor reading with boy + mom in a library, Geoff's pick) → `public/home-tutoring-in-person.jpg` ✅ 2026-07-11
+- [x] Add Home "Virtual" stock photo — Pexels #5905688 (boy in live video session with tutor on laptop) → `public/home-tutoring-virtual.jpg` ✅ 2026-07-11
 - [ ] QA: make sure **all buttons/links work** and go to the correct pages ⏫
 - [ ] **Hide the Programs, Enroll, Impact, and Volunteer nav links** (Header § 2b) so the site can go live with only finished pages ⏫
 
@@ -97,7 +97,7 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 - [x] Mission band: eyebrow + Lora mission statement + "close gaps · confidence · empower families" line ✅ 2026-07-06
 - [x] How We Work section: In Person + Virtual cards (striped photo *placeholders* until real photos), "See how our programs work" CTA ✅ 2026-07-06
 - [x] Be Part of It section: three numbered cards → Enroll / Donate / Volunteer (design's "cards" variant) ✅ 2026-07-06
-- [ ] Swap How We Work striped photo placeholders for real photos when available
+- [x] Swap How We Work striped photo placeholders for real photos — Pexels stock photos added (see § 0) ✅ 2026-07-11
 - [ ] Create `code/app/page.tsx.md` sidecar file
 
 ### 3b. About (`code/app/about/page.tsx`) — ✅ built 2026-07-06
