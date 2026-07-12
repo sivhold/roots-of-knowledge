@@ -390,6 +390,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Divider band — Be Part of It above and the footer below are both
+          rokt-dark, so this amber strip keeps them from blending together. */}
+      <div style={{ height: "10px", background: "var(--color-rokt-mid)" }} />
     </div>
   );
 }
