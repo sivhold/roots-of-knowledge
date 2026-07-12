@@ -16,7 +16,7 @@ Reference: colors and page structure derived from `brain/rokt-home-page-mockup.s
 Ordered path to launching the redesigned site. Strategy: finish the core pages, soft-launch with only completed pages visible in nav, then finish the rest and unhide them.
 
 ### Build & fix (before soft launch)
-- [ ] Build the **Donate** page (see § 3g below) — last core page needed for launch ⏫
+- [x] Build the **Donate** page (see § 3g below) — last core page needed for launch ✅ 2026-07-11
 - [x] Add Home "In Person" stock photo — Pexels #8342266 (tutor reading with boy + mom in a library, Geoff's pick) → `public/home-tutoring-in-person.jpg` ✅ 2026-07-11
 - [x] Add Home "Virtual" stock photo — Pexels #5905688 (boy in live video session with tutor on laptop) → `public/home-tutoring-virtual.jpg` ✅ 2026-07-11
 - [ ] QA: make sure **all buttons/links work** and go to the correct pages ⏫
@@ -24,6 +24,7 @@ Ordered path to launching the redesigned site. Strategy: finish the core pages, 
 
 ### Soft launch
 - [ ] Let **Carol review** the current version (https://roots-of-knowledge.pages.dev/) ⏫
+- [ ] After Carol's review: decide which Donate payment elements stay visible (Stripe card section; Cash App/Venmo/PayPal/Square tap cards) and hide the unconfirmed ones — remove entries from `tapMethods` in `donate/DonateMethods.tsx` / drop `<CardGiving />` 🔼
 - [ ] **Transfer the domain** (`roots-of-knowledge.com`) from WordPress.com to the Cloudflare Pages site ⏫ — see also `todo-nextjs-migration.md`
 - [ ] **Let Carol know** the new redesign is ready/live 🔼
 
@@ -125,16 +126,16 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 - [ ] Action: contact form or email link
 - [ ] Create `code/app/volunteer/page.tsx.md` sidecar file
 
-### 3g. Donate (`code/app/donate/page.tsx`) — ⏫ NEXT PAGE (2026-07-06); design spec in `brain/redesign-handoff/` (`Donate Page.dc.html` + README §5, incl. PayIcon badges + coming-soon modal)
-- [ ] Heading: "Support Our Work" (not "Donate" — per nav language rule in CLAUDE.md)
-- [ ] Intro copy: "Every child deserves to read with confidence…"
-- [ ] Payment methods — all additive, none replace the others:
-  - [ ] Zelle (confirmed live)
-  - [ ] Cash App (confirmed live)
-  - [ ] Mailed check (confirmed live)
-  - [ ] Stripe card donations — placeholder only until Carol confirms
-  - [ ] Venmo — placeholder until Carol provides handle
-- [ ] Giving levels: one-time ($25, $50, $100, custom) and monthly ($30/mo, $60/mo)
+### 3g. Donate (`code/app/donate/page.tsx`) — ✅ built 2026-07-11; design spec in `brain/redesign-handoff/` (`Donate Page.dc.html` + README §5)
+- [x] Heading: eyebrow "Support Our Work" + Lora H1 "Every gift helps a child find their words" (not "Donate" — per nav language rule in CLAUDE.md) ✅ 2026-07-11
+- [x] Intro copy: handoff's final copy ("Your support puts a caring tutor and the right books…") ✅ 2026-07-11
+- [x] Payment methods — all additive, none replace the others:
+  - [x] Zelle (confirmed live) — dark card, phone + email + memo ✅ 2026-07-11
+  - [x] Cash App (confirmed live) — "Give in a tap" card (coming-soon modal for now; note: it actually works via the Zelle phone number today — decide with Carol whether the tap card should show that instead) ✅ 2026-07-11
+  - [x] Mailed check (confirmed live) — dark card, payable-to + call for address ✅ 2026-07-11
+  - [x] Stripe card donations — `donate/CardGiving.tsx`, visible, opens coming-soon modal until the real checkout URL exists ✅ 2026-07-11
+  - [x] Venmo / PayPal / Square — "Give in a tap" cards with PayIcon badges (`components/PayIcon.tsx`) + shared coming-soon modal (`donate/DonateMethods.tsx`), per Geoff 2026-07-11: build everything design-faithful now, curate visibility after Carol's demo ✅ 2026-07-11
+- [x] Giving levels: one-time ($25, $50, $100, Other) and monthly ($30/mo, $60/mo, Other) — interactive `GiftChooser.tsx` with impact line per the handoff ✅ 2026-07-11
 - [ ] Create `code/app/donate/page.tsx.md` sidecar file
 
 ---
