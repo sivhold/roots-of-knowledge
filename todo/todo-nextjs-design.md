@@ -13,14 +13,15 @@ Reference: colors and page structure derived from `brain/rokt-home-page-mockup.s
 
 ## 0. Go-Live Roadmap (added 2026-07-06)
 
-Ordered path to launching the redesigned site. Strategy: finish the core pages, soft-launch with only completed pages visible in nav, then finish the rest and unhide them.
+Ordered path to launching the redesigned site. **Strategy change (2026-07-12):** instead of hiding unfinished pages from nav, all 5 nav pages are live — Enroll/Impact/Volunteer ship as **contact-first placeholders** (`components/PlaceholderPage.tsx`) so every nav link and CTA resolves to a real page with working email/phone contact. No dead links, no "Coming Soon" stubs. Full designs for those three come after launch.
 
 ### Build & fix (before soft launch)
 - [x] Build the **Donate** page (see § 3g below) — last core page needed for launch ✅ 2026-07-11
 - [x] Add Home "In Person" stock photo — Pexels #8342266 (tutor reading with boy + mom in a library, Geoff's pick) → `public/home-tutoring-in-person.jpg` ✅ 2026-07-11
 - [x] Add Home "Virtual" stock photo — Pexels #5905688 (boy in live video session with tutor on laptop) → `public/home-tutoring-virtual.jpg` ✅ 2026-07-11
-- [ ] QA: make sure **all buttons/links work** and go to the correct pages ⏫
-- [ ] **Hide the Programs, Enroll, Impact, and Volunteer nav links** (Header § 2b) so the site can go live with only finished pages ⏫
+- [x] **Placeholder pages for Enroll / Impact / Volunteer** — shared `PlaceholderPage` component: intro + "Reach out" card with Email Us (mailto + prefilled subject) and Call buttons ✅ 2026-07-12. Resolves the previously-accepted `/enroll` and `/volunteer` dead links — those CTAs now land on real contact pages.
+- [x] **All nav links live** (Header § 2b) — reverted the hide-the-links plan; Enroll/Impact/Volunteer are placeholders, not hidden ✅ 2026-07-12
+- [ ] QA: with the placeholders in place there are **no known dead links** — re-verify all buttons/links resolve correctly before launch ⏫
 
 ### Soft launch
 - [ ] Let **Carol review** the current version (https://roots-of-knowledge.pages.dev/) ⏫
@@ -28,11 +29,12 @@ Ordered path to launching the redesigned site. Strategy: finish the core pages, 
 - [ ] **Transfer the domain** (`roots-of-knowledge.com`) from WordPress.com to the Cloudflare Pages site ⏫ — see also `todo-nextjs-migration.md`
 - [ ] **Let Carol know** the new redesign is ready/live 🔼
 
-### After launch — finish remaining pages, then unhide their nav links
-- [ ] Finish the **Programs** page (§ 3c) 🔼
-- [ ] Finish the **Enroll** page (§ 3d) 🔼
-- [ ] Finish the **Impact** page (§ 3e) 🔼
-- [ ] Finish the **Volunteer** page (§ 3f) 🔽
+### After launch — replace the 3 placeholders with proper full-design pages
+Each of Enroll / Impact / Volunteer currently renders the shared `PlaceholderPage` (contact-first). Replace with a real design (drop the `PlaceholderPage` import in that route's `page.tsx`).
+- [x] Finish the **Programs** page (§ 3c) ✅ 2026-07-12 (built pre-launch; nav link live)
+- [ ] Finish the **Enroll** page with a proper design (§ 3d) 🔼 — replace placeholder; decide form vs. email (see `docs/rokt-regform.docx` for source material)
+- [ ] Finish the **Impact** page with a proper design (§ 3e) 🔼 — replace placeholder; **blocked on Carol** for real stats/testimonials/outcomes
+- [ ] Finish the **Volunteer** page with a proper design (§ 3f) 🔽 — replace placeholder; tutor role details + requirements
 
 ---
 
@@ -81,7 +83,8 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 - [x] Content: copyright line, contact email, Facebook + X placeholder icons ✅ 2026-06-21
 - [ ] Nav echo: abbreviated set of links (About, Donate, Enroll) — deferred
 - [x] Footer social icons: official brand marks — Facebook white "f" on `#1877F2`; **X white glyph on black** (X rebrand, replaces the old "Twitter blue #1DA1F2" plan) ✅ 2026-07-06
-- [ ] Update social URLs when Carol confirms (still `href="#"` placeholders)
+- [x] Social icons open a **coming-soon popup** instead of dead `href="#"` links — Footer is now a client component; icons are `<button>`s that open a per-network modal ("We're not on Facebook/X quite yet") pointing to the contact email; same scrim/card/Escape-dismiss pattern as the Donate modal ✅ 2026-07-12
+- [ ] **Make the Facebook + X links work as real links** ⏫ — once Carol provides the real URLs, replace the `<button>` + modal in `Footer.tsx` with plain `<a href>` links (open in new tab) and delete the popup
 - [ ] Create `code/components/Footer.tsx.md` sidecar file
 
 ### 2d. Page Content Wrapper
@@ -107,22 +110,25 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 - [ ] Swap in a higher-res / portrait-oriented photo of Carol if she sends one (current is 290×297, near-square — upscaled + side-cropped)
 - [ ] Create `code/app/about/page.tsx.md` sidecar file
 
-### 3c. Programs (`code/app/programs/page.tsx`)
-- [ ] Content: describe tutoring programs — grades K–5, reading focus, evidence-based methods, culturally responsive
-- [ ] Format: likely cards or a feature list per program type (in-person / virtual / one-on-one / small group)
+### 3c. Programs (`code/app/programs/page.tsx`) — ✅ built 2026-07-12
+- [x] Content: describe tutoring programs — grades K–5, reading focus, evidence-based methods, culturally responsive ✅ 2026-07-12 — copy adapted from Carol's flyer services list (`brain/page-designs-and-copy.md` § Source Material); flyer's "small-group and one-on-one tutoring" item lives in the formats section, not the services grid, to avoid repeating it
+- [x] Format: 4 sections — gradient intro band · "What We Teach" (4 sienna cards on amber) · "How Tutoring Happens" (4 white format cards: In Person / Virtual / Small Group / One-on-One) · dark CTA band (Enroll Your Child → `/enroll` + Support Our Work → `/donate`) ✅ 2026-07-12
 - [ ] Create `code/app/programs/page.tsx.md` sidecar file
 
-### 3d. Enroll (`code/app/enroll/page.tsx`)
-- [ ] Content: enrollment instructions, eligibility (K–5, LA County underserved communities, free of charge)
+### 3d. Enroll (`code/app/enroll/page.tsx`) — ⏳ placeholder shipped 2026-07-12
+- [x] Contact-first placeholder via `PlaceholderPage` (title "Let's get your child started", Email Us + Call buttons) ✅ 2026-07-12
+- [ ] **Replace placeholder with proper design** 🔼 — enrollment instructions, eligibility (K–5, LA County underserved communities, free of charge)
 - [ ] Action: contact form or link to email (`rootsofknowledgetutor@gmail.com`) — TBD which approach Carol prefers
 - [ ] Create `code/app/enroll/page.tsx.md` sidecar file
 
-### 3e. Impact (`code/app/impact/page.tsx`)
-- [ ] Content: stats, testimonials, outcomes — placeholder until Carol provides real data
+### 3e. Impact (`code/app/impact/page.tsx`) — ⏳ placeholder shipped 2026-07-12
+- [x] Contact-first placeholder via `PlaceholderPage` (title "Young readers, growing every week") ✅ 2026-07-12
+- [ ] **Replace placeholder with proper design** 🔼 — stats, testimonials, outcomes; **blocked on Carol** for real data
 - [ ] Create `code/app/impact/page.tsx.md` sidecar file
 
-### 3f. Volunteer (`code/app/volunteer/page.tsx`)
-- [ ] Content: how to volunteer, what tutors do, requirements (if any)
+### 3f. Volunteer (`code/app/volunteer/page.tsx`) — ⏳ placeholder shipped 2026-07-12
+- [x] Contact-first placeholder via `PlaceholderPage` (title "Become a tutor. Change a story.") ✅ 2026-07-12
+- [ ] **Replace placeholder with proper design** 🔽 — how to volunteer, what tutors do, requirements (if any)
 - [ ] Action: contact form or email link
 - [ ] Create `code/app/volunteer/page.tsx.md` sidecar file
 
@@ -135,13 +141,16 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
   - [x] Mailed check (confirmed live) — dark card, payable-to + call for address ✅ 2026-07-11
   - [x] Stripe card donations — `donate/CardGiving.tsx`, visible, opens coming-soon modal until the real checkout URL exists ✅ 2026-07-11
   - [x] Venmo / PayPal / Square — "Give in a tap" cards with PayIcon badges (`components/PayIcon.tsx`) + shared coming-soon modal (`donate/DonateMethods.tsx`), per Geoff 2026-07-11: build everything design-faithful now, curate visibility after Carol's demo ✅ 2026-07-11
+- [ ] **Make the credit-card button + the 4 pay-app buttons actually work** ⏫ — right now the Stripe "Donate with Card" button (`CardGiving.tsx`) and all 4 tap cards (Cash App / Venmo / PayPal / Square in `DonateMethods.tsx`) only open the coming-soon modal. Wire each confirmed method to its real destination (Stripe Payment Link; each app's real handle/deep link) once Carol provides them, and drop the modal for those. Depends on the "which methods stay visible" decision below + Carol's confirmations in "Waiting on Carol."
 - [x] Giving levels: one-time ($25, $50, $100, Other) and monthly ($30/mo, $60/mo, Other) — interactive `GiftChooser.tsx` with impact line per the handoff ✅ 2026-07-11
+- [x] Volunteer callout — amber closing band ("Give your time, not just a gift" → "Become a Tutor" button → `/volunteer`) ✅ 2026-07-12. **Decision (Geoff, 2026-07-12): "Support Our Work" spans giving money AND time.** Chose Option A: keep "Support Our Work" buttons → `/donate`, and let the Donate page carry the volunteer path via this callout. (Options B "relabel buttons Donate + add Volunteer button" and C "/support hub page" were considered and declined.) Button 404s until `/volunteer` ships — swap is trivial, tracked in the QA note in §0.
 - [ ] Create `code/app/donate/page.tsx.md` sidecar file
 
 ---
 
 ## 4. Shared / Utility Components (plan ahead, build later)
 
+- [x] `code/components/PlaceholderPage.tsx` — contact-first shell for Enroll/Impact/Volunteer until they get full designs (props: eyebrow, title, blurb, contactPrompt, emailSubject) ✅ 2026-07-12 — sidecar `.md` still TODO
 - [ ] `code/components/Button.tsx` — reusable button (filled vs. outline variants, rokt-dark/rokt-light colors) + sidecar `.md`
 - [ ] `code/components/Card.tsx` — reusable card shell used on Home "Be Part of It" and Programs page + sidecar `.md`
 - [ ] `code/components/SectionHeading.tsx` — consistent `<h2>` styling across sections + sidecar `.md`

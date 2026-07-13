@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// All pages exist as of 2026-07-12 — Enroll/Impact/Volunteer are contact-first
+// placeholders (components/PlaceholderPage.tsx) until their full designs ship.
 const navLinks = [
   { label: "About", href: "/about" },
   { label: "Programs", href: "/programs" },

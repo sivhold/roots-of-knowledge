@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HoverLink from "@/components/HoverLink";
 import GiftChooser from "./GiftChooser";
 import DonateMethods from "./DonateMethods";
 
@@ -113,6 +114,77 @@ export default function Donate() {
 
       {/* Card section, divider, Zelle/Check cards, app grid + coming-soon modal */}
       <DonateMethods />
+
+      {/* ============ GIVE YOUR TIME (volunteer callout) ============ */}
+      {/* "Support Our Work" spans money AND time — this closes the Donate page
+          by pointing would-be tutors to the Volunteer page. Link 404s until
+          /volunteer ships (accepted 2026-07-12, tracked in todo-nextjs-design). */}
+      <section
+        style={{
+          background: "var(--color-rokt-mid)",
+          color: "var(--color-rokt-light)",
+          padding: "4rem 2rem",
+          textAlign: "center",
+        }}
+      >
+        <div style={{ maxWidth: "680px", margin: "0 auto" }}>
+          <span
+            style={{
+              display: "inline-block",
+              fontSize: "0.85rem",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              fontWeight: 700,
+              opacity: 0.85,
+              marginBottom: "1rem",
+            }}
+          >
+            Another way to give
+          </span>
+          <h2
+            style={{
+              fontFamily: lora,
+              fontSize: "2.1rem",
+              lineHeight: 1.25,
+              margin: "0 0 1rem",
+              textWrap: "balance",
+            }}
+          >
+            Give your time, not just a gift
+          </h2>
+          <p
+            style={{
+              fontSize: "1.2rem",
+              lineHeight: 1.6,
+              margin: "0 auto 1.9rem",
+              maxWidth: "560px",
+              opacity: 0.95,
+              textWrap: "pretty",
+            }}
+          >
+            Every gift matters &mdash; and so does every hour. Become a tutor and
+            help a child in your community discover the confidence that comes
+            with reading.
+          </p>
+          <HoverLink
+            href="/volunteer"
+            base={{
+              display: "inline-block",
+              padding: "1rem 2.4rem",
+              borderRadius: "999px",
+              background: "var(--color-rokt-accent)",
+              color: "var(--color-rokt-light)",
+              fontSize: "1.1rem",
+              fontWeight: 600,
+              boxShadow: "0 6px 18px rgba(61,122,69,0.32)",
+              transition: "background 0.15s ease, transform 0.15s ease",
+            }}
+            hover={{ background: "#34693c", transform: "translateY(-2px)" }}
+          >
+            Become a Tutor
+          </HoverLink>
+        </div>
+      </section>
     </div>
   );
 }
