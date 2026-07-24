@@ -4,7 +4,7 @@ import { useState } from "react";
 
 /**
  * "Give by card" section from the redesign handoff: a big green
- * "Donate with Credit Card" button, accepted-network badges, and a
+ * "Sponsor with Credit Card" button, accepted-network badges, and a
  * "Powered by Stripe" caption.
  *
  * Stripe checkout isn't wired up yet (pending Carol's confirmation —
@@ -72,7 +72,7 @@ export default function CardGiving({ onClick }: { onClick: () => void }) {
             <rect x="2" y="5" width="20" height="14" rx="2.5" fill="none" stroke="#fdf6ec" strokeWidth="2" />
             <rect x="2" y="8.5" width="20" height="3.2" fill="#fdf6ec" />
           </svg>
-          Donate with Credit Card
+          Sponsor with Credit Card
         </button>
 
         {/* Accepted networks */}

@@ -116,9 +116,15 @@ export default function Header() {
             );
           })}
 
-          {/* Donate — visually distinct green pill CTA */}
+          {/* Sponsorship — visually distinct green pill CTA.
+              Labelled "Sponsorship", not "Donate": ROKT is an LLC, so
+              contributions are not tax-deductible and Carol asked (2026-07-23)
+              that donation language become sponsorship language site-wide.
+              Her wording, kept verbatim at Geoff's direction.
+              The route moved /donate -> /sponsorship at the same time; old
+              links are covered by the 301 in public/_redirects. */}
           <Link
-            href="/donate"
+            href="/sponsorship"
             style={{
               color: "var(--color-rokt-header-font)",
               fontFamily: "var(--font-source-sans), Arial, Helvetica, sans-serif",
@@ -139,7 +145,7 @@ export default function Header() {
                 "var(--color-rokt-accent)";
             }}
           >
-            Donate
+            Sponsorship
           </Link>
         </nav>
       </div>

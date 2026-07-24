@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import HoverLink from "@/components/HoverLink";
+import { eyebrow } from "@/lib/typography";
 
 export const metadata: Metadata = {
   title: "About Us — Roots of Knowledge Tutoring",
@@ -9,26 +10,22 @@ export const metadata: Metadata = {
 };
 
 // Shared inline style fragments
-const eyebrow: React.CSSProperties = {
-  display: "inline-block",
-  fontSize: "0.85rem",
-  letterSpacing: "0.22em",
-  textTransform: "uppercase",
-  fontWeight: 600,
-};
 const lora = "var(--font-lora), Georgia, serif";
 
 const storyParagraphs = [
   "Roots of Knowledge Tutoring (ROKT) was founded by Carol Bluee to address the persistent reading disparities affecting children in low-income and historically marginalized neighborhoods across Los Angeles County.",
   "After retiring from an executive career at the UCLA Store, Carol turned to her passion for early childhood education. Working in schools throughout the community, she saw the same heartbreaking pattern again and again: children arriving at elementary school not yet knowing their alphabet, already behind before they'd truly begun.",
-  "Too many students in underserved communities read below grade level — not for lack of ability, but for lack of access to individualized instruction, culturally relevant materials, and early support.",
+  // Carol's verbatim wording from the original source document, restored at her
+  // request (2026-07-23). An earlier draft paraphrased this; she wants the
+  // original sentence back, so edit with care.
+  "Statistics show that many students in underserved communities read below grade level, often due to limited access to individualized instruction, culturally relevant materials, and early intervention services.",
   "ROKT was created to close that gap. We combine evidence-based literacy instruction with culturally affirming teaching, so that every child we serve can build strong reading skills, academic confidence, and a genuine love of learning.",
 ];
 
 const missionVision = [
   {
     label: "Our Mission",
-    body: "To improve reading proficiency and academic confidence among students in underserved areas of Los Angeles County through culturally responsive, high-quality tutoring.",
+    body: "To improve reading proficiency and academic confidence among students in underserved areas of Los Angeles County through culturally responsive, and high-quality tutoring.",
   },
   {
     label: "Our Vision",
@@ -78,17 +75,6 @@ export default function About() {
           <span style={{ ...eyebrow, color: "var(--color-rokt-accent)", marginBottom: "1rem" }}>
             About Us
           </span>
-          <h1
-            style={{
-              fontFamily: lora,
-              fontSize: "3rem",
-              lineHeight: 1.15,
-              margin: "0 0 1.1rem",
-              color: "#4a3318",
-            }}
-          >
-            Roots strong enough to hold every reader
-          </h1>
           <p
             style={{
               fontFamily: lora,
@@ -160,7 +146,11 @@ export default function About() {
 
           {/* Story copy */}
           <div>
-            <h2
+            {/* This is the page's h1, not an h2: Carol removed the intro
+                tagline that previously held that role (2026-07-23), and a page
+                with no h1 hurts both SEO and screen-reader navigation. Styling
+                is inline, so the tag change is purely semantic. */}
+            <h1
               style={{
                 fontFamily: lora,
                 fontSize: "2.1rem",
@@ -170,7 +160,7 @@ export default function About() {
               }}
             >
               Our Story
-            </h2>
+            </h1>
             {storyParagraphs.map((para, i) => (
               <p
                 key={i}
@@ -214,8 +204,6 @@ export default function About() {
               <span
                 style={{
                   ...eyebrow,
-                  fontSize: "0.8rem",
-                  letterSpacing: "0.2em",
                   color: "var(--color-rokt-light)",
                   opacity: 0.8,
                   marginBottom: "0.9rem",
@@ -328,7 +316,7 @@ export default function About() {
               Get Help for Your Child
             </HoverLink>
             <HoverLink
-              href="/donate"
+              href="/sponsorship"
               base={{
                 padding: "1rem 2.4rem",
                 borderRadius: "999px",

@@ -7,7 +7,12 @@ status: active
 
 Reference: colors and page structure derived from `brain/rokt-home-page-mockup.svg` and live site at https://roots-of-knowledge.com/. Visual tone: warm, community-focused, approachable.
 
-> **2026-07-06 redesign update:** Header, Footer, Home, and About were rebuilt from the Claude-Design handoff in `brain/redesign-handoff/` (supersedes the earlier hand-built versions). Checkboxes below are updated to match; some completed items were re-approached (e.g. active nav = underline not green pill; fonts = Lora + Source Sans 3). Fonts, `HoverLink` refactor, and Carol's real photo landed this session. See `MEMORY.md` (2026-07-06) and commits `91acb5f`/`099f6d2`/`8ec871b`. **Next page: Donate.**
+> **2026-07-06 redesign update:** Header, Footer, Home, and About were rebuilt from the Claude-Design handoff in `brain/redesign-handoff/` (supersedes the earlier hand-built versions). Checkboxes below are updated to match; some completed items were re-approached (e.g. active nav = underline not green pill; fonts = Lora + Source Sans 3). Fonts, `HoverLink` refactor, and Carol's real photo landed this session. See `MEMORY.md` (2026-07-06) and commits `91acb5f`/`099f6d2`/`8ec871b`.
+
+> **2026-07-23 — Carol's feedback round 1 (`Webchanges.docx`), commit `72dbad3` (not yet pushed):** copy + type-size changes across every page. Two structural outcomes to know before editing anything below:
+> - **`/donate` is now `/sponsorship`** — route renamed, all references in this file updated. ROKT is an LLC, so donation language became sponsorship language site-wide; the **nav language rule in `CLAUDE.md` is superseded**. Old links are covered by a 301 in `code/public/_redirects` (Next's `redirects()` does nothing in a static export — it must live at the Cloudflare level).
+> - **Eyebrow labels are now shared** in `code/lib/typography.ts` at `1.25rem` (was `0.85rem`, copy-pasted into six files). Carol's "headers should be larger" note was about these labels, not the Lora headings. **Don't redeclare `eyebrow` locally — import it.**
+> See `MEMORY.md` (2026-07-23) for the full breakdown and the open questions still pending Carol.
 
 ---
 
@@ -22,12 +27,19 @@ Ordered path to launching the redesigned site. **Strategy change (2026-07-12):**
 - [x] **Placeholder pages for Enroll / Impact / Volunteer** — shared `PlaceholderPage` component: intro + "Reach out" card with Email Us (mailto + prefilled subject) and Call buttons ✅ 2026-07-12. Resolves the previously-accepted `/enroll` and `/volunteer` dead links — those CTAs now land on real contact pages.
 - [x] **All nav links live** (Header § 2b) — reverted the hide-the-links plan; Enroll/Impact/Volunteer are placeholders, not hidden ✅ 2026-07-12
 - [ ] QA: with the placeholders in place there are **no known dead links** — re-verify all buttons/links resolve correctly before launch ⏫
+- [x] Commit + push this session's work (Programs, placeholders, footer popup, Donate callout) — commit `bd24b72`, pushed to `main`; Cloudflare auto-deployed live to https://roots-of-knowledge.pages.dev/ ✅ 2026-07-12. (Push also swept up 3 earlier local-only commits: `06f7a25` Donate, `7b6877c` photos, `37f82bd` divider.)
+
+### Carol feedback round 1 (2026-07-23)
+- [x] Implement everything in `Webchanges.docx` — Home, About, Programs, Enroll, Impact/Volunteer header sizes, and the donation → sponsorship rename ✅ 2026-07-23 (commit `72dbad3`)
+- [ ] **Push `72dbad3` to `main`** ⏫ — committed locally but NOT pushed, so Cloudflare hasn't deployed any of Carol's changes yet
+- [ ] **Reply to Carol** ⏫ — three things to cover: (1) her changes are on **https://roots-of-knowledge.pages.dev/**, NOT `roots-of-knowledge.com`, which is still WordPress — she'll see no change if she checks the live domain; (2) does the Home hero's unconditional "free" language need to match the new "qualifying families" wording? (3) should "gift"/"give" become sponsorship language too, or only "donation"?
+- [ ] Re-run the dead-link QA below now that `/donate` → `/sponsorship` 🔼
 
 ### Soft launch
-- [ ] Let **Carol review** the current version (https://roots-of-knowledge.pages.dev/) ⏫
-- [ ] After Carol's review: decide which Donate payment elements stay visible (Stripe card section; Cash App/Venmo/PayPal/Square tap cards) and hide the unconfirmed ones — remove entries from `tapMethods` in `donate/DonateMethods.tsx` / drop `<CardGiving />` 🔼
-- [ ] **Transfer the domain** (`roots-of-knowledge.com`) from WordPress.com to the Cloudflare Pages site ⏫ — see also `todo-nextjs-migration.md`
-- [ ] **Let Carol know** the new redesign is ready/live 🔼
+- [ ] Let **Carol review** the current version (https://roots-of-knowledge.pages.dev/) — **review email drafted 2026-07-12** (asks her to review + note feedback; proposes a Mon/Wed call, Geoff available after 3pm PT). Pending: Geoff sends it → Carol reviews → feedback. This email also covers the "let Carol know it's ready" item below. ⏫ — **partially overtaken 2026-07-23:** Carol has already given written feedback (`Webchanges.docx`), so this is now about the *next* review round.
+- [ ] After Carol's review: decide which Donate payment elements stay visible (Stripe card section; Cash App/Venmo/PayPal/Square tap cards) and hide the unconfirmed ones — remove entries from `tapMethods` in `sponsorship/DonateMethods.tsx` / drop `<CardGiving />` 🔼
+- [ ] **Transfer the domain** (`roots-of-knowledge.com`) from WordPress.com to the Cloudflare Pages site ⏫ — see also `todo-nextjs-migration.md`. **Proposed to Carol in the 2026-07-12 review email** ("switch it over once you're happy with it") — pending her approval after review.
+- [x] **Let Carol know** the new redesign is ready/live ✅ 2026-07-12 — folded into the review email above (drafted; send pending)
 
 ### After launch — replace the 3 placeholders with proper full-design pages
 Each of Enroll / Impact / Volunteer currently renders the shared `PlaceholderPage` (contact-first). Replace with a real design (drop the `PlaceholderPage` import in that route's `page.tsx`).
@@ -67,7 +79,7 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 ### 2b. Header (`code/components/Header.tsx`)
 - [x] Background: `rokt-dark` (`#6B4A2B`) ✅ 2026-06-21
 - [x] Logo: ROKT logo image copied to `code/public/`, displayed in header linking to `/` ✅ 2026-06-22
-- [x] Nav links: About, Programs, Enroll, Impact, Volunteer, Donate — text `rokt-header-font` (= `rokt-light` #fdf6ec, named separately for flexibility) ✅ 2026-06-21
+- [x] Nav links: About, Programs, Enroll, Impact, Volunteer, **Sponsorship** — text `rokt-header-font` (= `rokt-light` #fdf6ec, named separately for flexibility) ✅ 2026-06-21; green pill relabelled Donate → Sponsorship and repointed to `/sponsorship` ✅ 2026-07-23
 - [x] "Roots of Knowledge Tutoring" site title links to `/` ✅ 2026-06-21
 - [x] Active page nav item: **underline** (`text-underline-offset: 4px`) ✅ 2026-07-06 — redesign replaced the old green-pill active state
 - [x] Hover: **green background tint** `rgba(61,122,69,0.3)` ✅ 2026-07-06 — redesign replaced the old pop-out/scale animation
@@ -97,27 +109,36 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 ## 3. Pages
 
 ### 3a. Home (`code/app/page.tsx`)
-- [x] Hero section: full logo centered, Lora subheadline, two pill CTAs (Get Help for Your Child → `/enroll`, Support Our Work → `/donate`) ✅ 2026-07-06 (rebuilt in redesign)
+- [x] Hero section: full logo centered, Lora subheadline, two pill CTAs (Get Help for Your Child → `/enroll`, Support Our Work → `/sponsorship`) ✅ 2026-07-06 (rebuilt in redesign)
 - [x] Mission band: eyebrow + Lora mission statement + "close gaps · confidence · empower families" line ✅ 2026-07-06
 - [x] How We Work section: In Person + Virtual cards (striped photo *placeholders* until real photos), "See how our programs work" CTA ✅ 2026-07-06
 - [x] Be Part of It section: three numbered cards → Enroll / Donate / Volunteer (design's "cards" variant) ✅ 2026-07-06
 - [x] Swap How We Work striped photo placeholders for real photos — Pexels stock photos added (see § 0) ✅ 2026-07-11
+- [x] **Carol 2026-07-23:** removed "Choose what fits your family best…" from How We Work (ROKT decides the format per student, not the family); "Be Part of It" card 2 relabelled Donate → **Sponsorship** ✅ 2026-07-23
+- [x] **Fix (2026-07-23):** How We Work headline was orphaning the word "are" — needs ~782px on one line but its block was capped at 720px. Widened **that block only** to 800px + `text-wrap: balance`. Note this is a one-off; every other section on the page uses 720px ✅ 2026-07-23
+- [ ] **Visual check needed:** with Carol's sentence removed, the How We Work block is now headline-only above the three cards — no body copy. Confirm it doesn't read as too bare, or ask Carol for replacement copy that keeps the agency with ROKT 🔽
+- [ ] **Decide with Carol: the Home hero still promises unconditionally "free" tutoring** ⏫ — "Free, culturally responsive reading instruction" (hero), "Free reading tutoring for children in grades K–5" (enroll card), and all four page meta descriptions. Programs and Enroll now say it's conditional on qualifying (2026-07-23), so a parent can read a flat promise here and hit a qualification gate at enrollment.
 - [ ] Create `code/app/page.tsx.md` sidecar file
 
 ### 3b. About (`code/app/about/page.tsx`) — ✅ built 2026-07-06
 - [x] Intro band + Founder Story ("Our Story" ×4 paras) + Mission & Vision cards + Core Values 2×2 + CTA band ✅ 2026-07-06
 - [x] Photo of Carol — she provided it → `public/carol-bluee.jpg` (sticky founder column, capped 320×400, face-focused `object-position`) ✅ 2026-07-06
 - [ ] Swap in a higher-res / portrait-oriented photo of Carol if she sends one (current is 290×297, near-square — upscaled + side-cropped)
+- [x] **Carol 2026-07-23:** grammar fix in the mission card ("culturally responsive, **and** high-quality tutoring"); removed the intro headline "Roots strong enough to hold every reader"; restored her verbatim "Statistics show that many students…" sentence — this **replaced** the existing paraphrase of it rather than being appended, since both would have said the same thing back to back ✅ 2026-07-23
+- [x] **"Our Story" promoted `h2` → `h1`** — removing Carol's intro headline left the page with no `h1` at all, which hurts SEO and screen-reader navigation. Styling is inline so nothing moved visually ✅ 2026-07-23
+- [ ] **Visual check needed:** the intro band is now just the eyebrow + a one-sentence blurb (~155px tall), with padding that was tuned for a 3rem headline sitting between them. May want more breathing room 🔽
 - [ ] Create `code/app/about/page.tsx.md` sidecar file
 
 ### 3c. Programs (`code/app/programs/page.tsx`) — ✅ built 2026-07-12
 - [x] Content: describe tutoring programs — grades K–5, reading focus, evidence-based methods, culturally responsive ✅ 2026-07-12 — copy adapted from Carol's flyer services list (`brain/page-designs-and-copy.md` § Source Material); flyer's "small-group and one-on-one tutoring" item lives in the formats section, not the services grid, to avoid repeating it
-- [x] Format: 4 sections — gradient intro band · "What We Teach" (4 sienna cards on amber) · "How Tutoring Happens" (4 white format cards: In Person / Virtual / Small Group / One-on-One) · dark CTA band (Enroll Your Child → `/enroll` + Support Our Work → `/donate`) ✅ 2026-07-12
+- [x] Format: 4 sections — gradient intro band · "What We Teach" (4 sienna cards on amber) · "How Tutoring Happens" (4 white format cards: In Person / Virtual / Small Group / One-on-One) · dark CTA band (Enroll Your Child → `/enroll` + Support Our Work → `/sponsorship`) ✅ 2026-07-12
+- [x] **Carol 2026-07-23:** "always free for families" → "**free to qualifying families**" — most children will be vetted and chosen by ROKT ✅ 2026-07-23
 - [ ] Create `code/app/programs/page.tsx.md` sidecar file
 
 ### 3d. Enroll (`code/app/enroll/page.tsx`) — ⏳ placeholder shipped 2026-07-12
 - [x] Contact-first placeholder via `PlaceholderPage` (title "Let's get your child started", Email Us + Call buttons) ✅ 2026-07-12
 - [ ] **Replace placeholder with proper design** 🔼 — enrollment instructions, eligibility (K–5, LA County underserved communities, free of charge)
+- [x] **Carol 2026-07-23:** blurb now ends "reach out today **to see if your child qualifies**" (her struck clause "and we'll get your child on the path to confident reading" removed) ✅ 2026-07-23
 - [ ] Action: contact form or link to email (`rootsofknowledgetutor@gmail.com`) — TBD which approach Carol prefers
 - [ ] Create `code/app/enroll/page.tsx.md` sidecar file
 
@@ -132,19 +153,21 @@ Note: project uses Tailwind v4 — color tokens go in `code/app/globals.css` via
 - [ ] Action: contact form or email link
 - [ ] Create `code/app/volunteer/page.tsx.md` sidecar file
 
-### 3g. Donate (`code/app/donate/page.tsx`) — ✅ built 2026-07-11; design spec in `brain/redesign-handoff/` (`Donate Page.dc.html` + README §5)
-- [x] Heading: eyebrow "Support Our Work" + Lora H1 "Every gift helps a child find their words" (not "Donate" — per nav language rule in CLAUDE.md) ✅ 2026-07-11
+### 3g. Sponsorship (`code/app/sponsorship/page.tsx`) — ✅ built 2026-07-11 as Donate; **renamed to Sponsorship 2026-07-23**; design spec in `brain/redesign-handoff/` (`Donate Page.dc.html` + README §5)
+- [x] Heading: eyebrow "Support Our Work" + Lora H1 "Every gift helps a child find their words" ✅ 2026-07-11
 - [x] Intro copy: handoff's final copy ("Your support puts a caring tutor and the right books…") ✅ 2026-07-11
 - [x] Payment methods — all additive, none replace the others:
   - [x] Zelle (confirmed live) — dark card, phone + email + memo ✅ 2026-07-11
   - [x] Cash App (confirmed live) — "Give in a tap" card (coming-soon modal for now; note: it actually works via the Zelle phone number today — decide with Carol whether the tap card should show that instead) ✅ 2026-07-11
   - [x] Mailed check (confirmed live) — dark card, payable-to + call for address ✅ 2026-07-11
-  - [x] Stripe card donations — `donate/CardGiving.tsx`, visible, opens coming-soon modal until the real checkout URL exists ✅ 2026-07-11
-  - [x] Venmo / PayPal / Square — "Give in a tap" cards with PayIcon badges (`components/PayIcon.tsx`) + shared coming-soon modal (`donate/DonateMethods.tsx`), per Geoff 2026-07-11: build everything design-faithful now, curate visibility after Carol's demo ✅ 2026-07-11
+  - [x] Stripe card donations — `sponsorship/CardGiving.tsx`, visible, opens coming-soon modal until the real checkout URL exists ✅ 2026-07-11
+  - [x] Venmo / PayPal / Square — "Give in a tap" cards with PayIcon badges (`components/PayIcon.tsx`) + shared coming-soon modal (`sponsorship/DonateMethods.tsx`), per Geoff 2026-07-11: build everything design-faithful now, curate visibility after Carol's demo ✅ 2026-07-11
 - [ ] **Make the credit-card button + the 4 pay-app buttons actually work** ⏫ — right now the Stripe "Donate with Card" button (`CardGiving.tsx`) and all 4 tap cards (Cash App / Venmo / PayPal / Square in `DonateMethods.tsx`) only open the coming-soon modal. Wire each confirmed method to its real destination (Stripe Payment Link; each app's real handle/deep link) once Carol provides them, and drop the modal for those. Depends on the "which methods stay visible" decision below + Carol's confirmations in "Waiting on Carol."
 - [x] Giving levels: one-time ($25, $50, $100, Other) and monthly ($30/mo, $60/mo, Other) — interactive `GiftChooser.tsx` with impact line per the handoff ✅ 2026-07-11
-- [x] Volunteer callout — amber closing band ("Give your time, not just a gift" → "Become a Tutor" button → `/volunteer`) ✅ 2026-07-12. **Decision (Geoff, 2026-07-12): "Support Our Work" spans giving money AND time.** Chose Option A: keep "Support Our Work" buttons → `/donate`, and let the Donate page carry the volunteer path via this callout. (Options B "relabel buttons Donate + add Volunteer button" and C "/support hub page" were considered and declined.) Button 404s until `/volunteer` ships — swap is trivial, tracked in the QA note in §0.
-- [ ] Create `code/app/donate/page.tsx.md` sidecar file
+- [x] Volunteer callout — amber closing band ("Give your time, not just a gift" → "Become a Tutor" button → `/volunteer`) ✅ 2026-07-12. **Decision (Geoff, 2026-07-12): "Support Our Work" spans giving money AND time.** Chose Option A: keep "Support Our Work" buttons → `/sponsorship`, and let the Donate page carry the volunteer path via this callout. (Options B "relabel buttons Donate + add Volunteer button" and C "/support hub page" were considered and declined.) Button 404s until `/volunteer` ships — swap is trivial, tracked in the QA note in §0.
+- [ ] Create `code/app/sponsorship/page.tsx.md` sidecar file
+- [ ] **Decide with Carol: does "gift"/"give" become sponsorship language too?** ⏫ — ~39 instances remain on this page, including the H1 "Every gift helps a child find their words", the "Choose your gift" section, and the metadata description ("**Give** by Zelle…"). Carol asked to change "anything that references donations to sponsorships" (2026-07-23); "donation" was changed, but "gift"/"give" don't carry the tax-deductible implication and rewriting them restyles the page's whole voice — needs her call, not ours.
+- [ ] **Rename the internal Donate-era identifiers** 🔽 — `DonateMethods.tsx` and the `Donate()` function still say Donate inside `app/sponsorship/`. Invisible to users; cosmetic cleanup for the portfolio repo.
 
 ---
 

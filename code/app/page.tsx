@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HoverLink from "@/components/HoverLink";
+import { eyebrow } from "@/lib/typography";
 
 // Stock photos from Pexels (free license, no attribution required).
 // objectPosition tunes which vertical band of each photo shows in the
@@ -39,10 +40,10 @@ const bePartCards = [
   },
   {
     num: "2",
-    title: "Donate",
-    body: "Your gift puts books and caring tutors in front of the kids who need them most.",
-    href: "/donate",
-    cta: "Donate",
+    title: "Sponsorship",
+    body: "Your sponsorship puts books and caring tutors in front of the kids who need them most.",
+    href: "/sponsorship",
+    cta: "Sponsorship",
   },
   {
     num: "3",
@@ -54,13 +55,6 @@ const bePartCards = [
 ];
 
 // Shared inline style fragments
-const eyebrow: React.CSSProperties = {
-  display: "inline-block",
-  fontSize: "0.85rem",
-  letterSpacing: "0.22em",
-  textTransform: "uppercase",
-  fontWeight: 600,
-};
 const lora = "var(--font-lora), Georgia, serif";
 
 export default function Home() {
@@ -140,7 +134,7 @@ export default function Home() {
               Get Help for Your Child
             </HoverLink>
             <HoverLink
-              href="/donate"
+              href="/sponsorship"
               base={{
                 padding: "1rem 2.4rem",
                 borderRadius: "999px",
@@ -203,7 +197,10 @@ export default function Home() {
       {/* ============ HOW WE WORK ============ */}
       <section style={{ background: "var(--color-rokt-light)", padding: "5rem 2rem" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 3rem" }}>
+          {/* maxWidth is 800px rather than the 720px used elsewhere so the
+              headline below clears one line on desktop — it measures ~782px at
+              2.4rem Lora and was orphaning "are" onto a second line at 720px. */}
+          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 3rem" }}>
             <span style={{ ...eyebrow, color: "var(--color-rokt-accent)", marginBottom: "0.9rem" }}>
               How We Work
             </span>
@@ -212,16 +209,15 @@ export default function Home() {
                 fontFamily: lora,
                 fontSize: "2.4rem",
                 lineHeight: 1.2,
-                margin: "0 0 1rem",
+                margin: 0,
                 color: "#4a3318",
+                // Splits evenly instead of orphaning a word once the viewport
+                // narrows past the one-line threshold.
+                textWrap: "balance",
               }}
             >
               Tutoring that meets families where they are
             </h2>
-            <p style={{ fontSize: "1.2rem", lineHeight: 1.6, margin: 0, color: "#5a4a32" }}>
-              Choose what fits your family best. Small groups and one-on-one —
-              always with focused attention from tutors who care.
-            </p>
           </div>
 
           <div

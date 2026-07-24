@@ -1,4 +1,5 @@
 import HoverLink from "@/components/HoverLink";
+import { eyebrow as baseEyebrow } from "@/lib/typography";
 
 /**
  * Shared shell for pages that exist but don't have their full design yet
@@ -11,11 +12,7 @@ import HoverLink from "@/components/HoverLink";
 const lora = "var(--font-lora), Georgia, serif";
 
 const eyebrow: React.CSSProperties = {
-  display: "inline-block",
-  fontSize: "0.85rem",
-  letterSpacing: "0.22em",
-  textTransform: "uppercase",
-  fontWeight: 600,
+  ...baseEyebrow,
   color: "var(--color-rokt-accent)",
 };
 

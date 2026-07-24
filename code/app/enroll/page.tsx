@@ -15,7 +15,7 @@ export default function Enroll() {
     <PlaceholderPage
       eyebrowText="Enroll"
       title="Let's get your child started"
-      blurb="Free reading tutoring for children in grades K–5 across Los Angeles County. Spots are limited — reach out today and we'll get your child on the path to confident reading."
+      blurb="Free reading tutoring for children in grades K–5 across Los Angeles County. Spots are limited — reach out today to see if your child qualifies."
       contactPrompt="Tell us your child's grade and neighborhood, and we'll take it from there."
       emailSubject="Enrollment inquiry — Roots of Knowledge Tutoring"
     />

@@ -1,0 +1,12 @@
+# Cloudflare Pages redirects.
+#
+# Everything in public/ is copied to the build output root, so this file lands
+# at out/_redirects where Cloudflare Pages picks it up. Next's own redirects()
+# config does NOT work here — it's a server feature and this site is a static
+# export (output: "export" in next.config.ts).
+#
+# /donate -> /sponsorship (2026-07-23): the giving page was renamed when Carol
+# moved the site from donation language to sponsorship language. Keep this rule
+# indefinitely — /donate was live and may already be printed on flyers or sent
+# in emails, and a 301 preserves the search ranking the old URL had earned.
+/donate /sponsorship 301

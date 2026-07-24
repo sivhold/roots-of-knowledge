@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HoverLink from "@/components/HoverLink";
+import { eyebrow } from "@/lib/typography";
 
 export const metadata: Metadata = {
   title: "Programs — Roots of Knowledge Tutoring",
@@ -8,13 +9,6 @@ export const metadata: Metadata = {
 };
 
 // Shared inline style fragments (same conventions as Home/About)
-const eyebrow: React.CSSProperties = {
-  display: "inline-block",
-  fontSize: "0.85rem",
-  letterSpacing: "0.22em",
-  textTransform: "uppercase",
-  fontWeight: 600,
-};
 const lora = "var(--font-lora), Georgia, serif";
 
 // "What we teach" — adapted from Carol's flyer services list
@@ -106,8 +100,8 @@ export default function Programs() {
           >
             A culturally responsive literacy program helping K&ndash;5 students
             across Los Angeles County strengthen their reading, build academic
-            confidence, and grow a lifelong love of learning &mdash; always free
-            for families.
+            confidence, and grow a lifelong love of learning &mdash; free to
+            qualifying families.
           </p>
         </div>
       </section>
@@ -296,7 +290,7 @@ export default function Programs() {
               Enroll Your Child
             </HoverLink>
             <HoverLink
-              href="/donate"
+              href="/sponsorship"
               base={{
                 padding: "1rem 2.4rem",
                 borderRadius: "999px",

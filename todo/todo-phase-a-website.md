@@ -9,6 +9,12 @@ Active build tasks currently tracked in the Todoist project "Roots-of-Knowledge"
 
 - [ ] Import the 57 active build tasks from the Todoist "Roots-of-Knowledge" project into this file ⏬
 
+> **⚠️ 2026-07-23 — Carol's feedback was applied to the Next.js site, not this one.** Her `Webchanges.docx` changes (header sizes, copy edits, and the **donation → sponsorship** rename) landed in `code/` and deploy to `.pages.dev`. **`roots-of-knowledge.com` — the WordPress site Carol actually visits — still shows the old copy.** Two of her items matter here regardless of which platform wins:
+> - **"Donate" must become "Sponsorship" on WordPress too** ⏫ — ROKT is an LLC and contributions aren't tax-deductible. This is a correctness issue, not a style preference, so it shouldn't wait on the domain cutover. Note this **supersedes** the "'Donate' kept in nav labels" decision recorded under *Done so far* below.
+> - **"always free"/"free for families" wording** should become "free to qualifying families" wherever it appears ⏫ — children are vetted and selected by ROKT.
+>
+> Decide explicitly: mirror these onto WordPress now, or tell Carol the WordPress site is frozen pending cutover. See `MEMORY.md` (2026-07-23).
+
 ## Done so far
 
 - [x] Homepage hero section — gradient background, transparent PNG logo, subheadline, "Get Help" / "Support Our Work" CTA buttons; page title hidden via CSS
@@ -33,6 +39,8 @@ Active build tasks currently tracked in the Todoist project "Roots-of-Knowledge"
 - [ ] Be Part of It
 
 ## Next pages (agreed build order)
+
+> **⚠️ Likely superseded (2026-07-12):** these pages are being built on the **Next.js** site instead (Phase B), not WordPress. As of 2026-07-12, Programs is fully built and Enroll/Impact/Volunteer ship as contact-first placeholders on the redesigned site (live at https://roots-of-knowledge.pages.dev/). A domain cutover from WordPress.com to the Cloudflare Pages site has been **proposed to Carol** (review email drafted). If she approves the switch, these WordPress page tasks become moot — don't build them in WordPress. See `todo-nextjs-design.md` § 0 (Go-Live Roadmap) and § 3c–3f.
 
 - [ ] Programs
 - [ ] Enroll

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HoverLink from "@/components/HoverLink";
+import { eyebrow as baseEyebrow } from "@/lib/typography";
 import GiftChooser from "./GiftChooser";
 import DonateMethods from "./DonateMethods";
 
@@ -11,11 +12,7 @@ export const metadata: Metadata = {
 
 // Shared inline style fragments — same conventions as app/page.tsx
 const eyebrow: React.CSSProperties = {
-  display: "inline-block",
-  fontSize: "0.85rem",
-  letterSpacing: "0.22em",
-  textTransform: "uppercase",
-  fontWeight: 700,
+  ...baseEyebrow,
   color: "var(--color-rokt-accent)",
 };
 const lora = "var(--font-lora), Georgia, serif";
@@ -130,11 +127,7 @@ export default function Donate() {
         <div style={{ maxWidth: "680px", margin: "0 auto" }}>
           <span
             style={{
-              display: "inline-block",
-              fontSize: "0.85rem",
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              fontWeight: 700,
+              ...baseEyebrow,
               opacity: 0.85,
               marginBottom: "1rem",
             }}

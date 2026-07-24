@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import PayIcon, { type PayMethod } from "@/components/PayIcon";
+import { eyebrow as baseEyebrow } from "@/lib/typography";
 import CardGiving from "./CardGiving";
 
 /**
@@ -32,11 +33,7 @@ const lora = "var(--font-lora), Georgia, serif";
 const sans = "var(--font-source-sans), Arial, Helvetica, sans-serif";
 
 const eyebrow: React.CSSProperties = {
-  display: "inline-block",
-  fontSize: "0.82rem",
-  letterSpacing: "0.2em",
-  textTransform: "uppercase",
-  fontWeight: 700,
+  ...baseEyebrow,
   color: "var(--color-rokt-accent)",
 };
 
