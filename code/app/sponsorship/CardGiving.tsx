@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 /**
- * "Give by card" section from the redesign handoff: a big green
+ * "Sponsor by card" section from the redesign handoff: a big green
  * "Sponsor with Credit Card" button, accepted-network badges, and a
  * "Powered by Stripe" caption.
  *

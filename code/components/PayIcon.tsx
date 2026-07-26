@@ -1,7 +1,7 @@
 /**
  * Payment-method badge icons from the redesign handoff (PayIcon.dc.html).
  * Each is a 100×100 rounded-square inline SVG — no bitmap assets exist.
- * Rendered at 72px on the Donate "Give in a tap" cards and 76px inside
+ * Rendered at 72px on the Sponsorship "Sponsor in a tap" cards and 76px inside
  * the coming-soon modal.
  */
 

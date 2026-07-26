@@ -3,10 +3,14 @@
 import { useState } from "react";
 
 /**
- * Interactive "choose your gift" block: One-time / Monthly pill toggle,
- * amount chips, and the impact line that names what the selected amount
- * does. Selection only drives the copy — actual giving happens through
- * the payment methods listed below this section.
+ * Interactive "choose your sponsorship" block: One-time / Monthly pill
+ * toggle, amount chips, and the impact line that names what the selected
+ * amount does. Selection only drives the copy — the actual payment happens
+ * through the methods listed below this section.
+ *
+ * Copy note: ROKT is an LLC, so contributions are not tax-deductible and all
+ * user-visible wording is sponsorship language, never gift/give/donation
+ * (Carol, 2026-07-23). The internal `gift*` identifiers below are historical.
  */
 
 type Amount = {
@@ -20,13 +24,13 @@ const onceAmounts: Amount[] = [
   { id: "25", label: "$25", desc: "", impact: "puts a fresh set of books in a child’s hands" },
   { id: "50", label: "$50", desc: "", impact: "covers a month of learning materials for a young reader" },
   { id: "100", label: "$100", desc: "", impact: "keeps a whole tutoring group supplied all season" },
-  { id: "other", label: "Other", desc: "", impact: "Give any amount that feels right — it all goes to books and tutoring." },
+  { id: "other", label: "Other", desc: "", impact: "Sponsor any amount that feels right — it all goes to books and tutoring." },
 ];
 
 const monthlyAmounts: Amount[] = [
   { id: "30", label: "$30 / mo", desc: "sponsors one child", impact: "sponsors one child’s reading journey, every month" },
   { id: "60", label: "$60 / mo", desc: "sponsors two children", impact: "sponsors two children’s reading journeys, every month" },
-  { id: "other", label: "Other", desc: "give monthly", impact: "Give any amount each month — steady support keeps our sessions running." },
+  { id: "other", label: "Other", desc: "sponsor monthly", impact: "Sponsor any amount each month — steady support keeps our sessions running." },
 ];
 
 const sans = "var(--font-source-sans), Arial, Helvetica, sans-serif";
@@ -132,7 +136,7 @@ export default function GiftChooser() {
   const impactMsg = selected
     ? selected.id === "other"
       ? selected.impact
-      : `Your ${selected.label} gift ${selected.impact}.`
+      : `Your ${selected.label} sponsorship ${selected.impact}.`
     : null;
 
   // Switching modes resets the selection — the amounts mean different things.
@@ -156,7 +160,7 @@ export default function GiftChooser() {
         }}
       >
         <ToggleButton active={giftMode === "once"} onClick={() => setMode("once")}>
-          One-time gift
+          One-time sponsorship
         </ToggleButton>
         <ToggleButton active={giftMode === "monthly"} onClick={() => setMode("monthly")}>
           Monthly sponsorship
@@ -196,7 +200,7 @@ export default function GiftChooser() {
           </>
         ) : (
           <p style={{ fontSize: "1.02rem", lineHeight: 1.55, margin: 0, color: "#9c8a68" }}>
-            Select an amount above, then pick a way to give below.
+            Select an amount above, then pick a way to send it below.
           </p>
         )}
       </div>

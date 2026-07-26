@@ -4,7 +4,7 @@ import PlaceholderPage from "@/components/PlaceholderPage";
 export const metadata: Metadata = {
   title: "Enroll — Roots of Knowledge Tutoring",
   description:
-    "Enroll your K–5 child in free reading tutoring with Roots of Knowledge Tutoring. Serving underserved communities across Los Angeles County — reach out by email or phone to get started.",
+    "Enroll your K–5 child in reading tutoring with Roots of Knowledge Tutoring — free to qualifying families. Serving underserved communities across Los Angeles County — reach out by email or phone to see if your child qualifies.",
 };
 
 // Placeholder page (2026-07-12): contact-first stand-in until the full

@@ -34,7 +34,7 @@ const bePartCards = [
   {
     num: "1",
     title: "Enroll Your Child",
-    body: "Free reading tutoring for children in grades K–5. Reserve your child's spot today.",
+    body: "Free reading tutoring for children in grades K–5. Reach out to see if your child qualifies.",
     href: "/enroll",
     cta: "Enroll Your Child",
   },
@@ -105,8 +105,9 @@ export default function Home() {
               textWrap: "balance",
             }}
           >
-            Free, culturally responsive reading instruction for children in
-            underserved communities across Los Angeles County.
+            Culturally responsive reading instruction for children in
+            underserved communities across Los Angeles County &mdash; free to
+            qualifying families.
           </p>
           <div
             style={{
@@ -176,8 +177,9 @@ export default function Home() {
             }}
           >
             We believe every child deserves to read with confidence — and to see
-            themselves reflected in what they read. We provide free, high-quality
-            reading tutoring to children in grades K–5.
+            themselves reflected in what they read. We provide high-quality
+            reading tutoring to children in grades K–5 &mdash; free to qualifying
+            families.
           </p>
           <p
             style={{

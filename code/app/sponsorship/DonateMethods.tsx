@@ -6,9 +6,9 @@ import { eyebrow as baseEyebrow } from "@/lib/typography";
 import CardGiving from "./CardGiving";
 
 /**
- * Everything below the gift chooser: the Stripe card section, the
- * "or give another way" divider, the Zelle / Check cards, the
- * "Give in a tap" app grid, and the shared coming-soon modal.
+ * Everything below the sponsorship chooser: the Stripe card section, the
+ * "or sponsor another way" divider, the Zelle / Check cards, the
+ * "Sponsor in a tap" app grid, and the shared coming-soon modal.
  *
  * One client component because the modal is opened from both the
  * credit-card button and the tap cards.
@@ -104,7 +104,7 @@ function TapCard({ method, onClick }: { method: ModalInfo; onClick: () => void }
             gap: "0.35rem",
           }}
         >
-          Tap to give&nbsp;&rarr;
+          Tap to sponsor&nbsp;&rarr;
         </span>
       </div>
     </div>
@@ -151,7 +151,7 @@ export default function DonateMethods() {
 
   return (
     <>
-      <CardGiving onClick={() => setModal({ key: "card", name: "Credit card giving" })} />
+      <CardGiving onClick={() => setModal({ key: "card", name: "Credit card sponsorship" })} />
 
       {/* ============ DIVIDER ============ */}
       <section style={{ padding: "0 2rem" }}>
@@ -174,17 +174,17 @@ export default function DonateMethods() {
               color: "#a3906a",
             }}
           >
-            or give another way
+            or sponsor another way
           </span>
           <div style={{ flex: 1, height: "1px", background: "#e2d6bd" }} />
         </div>
       </section>
 
-      {/* ============ WAYS TO GIVE (Zelle + Check) ============ */}
+      {/* ============ WAYS TO SPONSOR (Zelle + Check) ============ */}
       <section style={{ padding: "2.5rem 2rem 1rem" }}>
         <div style={{ maxWidth: "820px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-            <span style={eyebrow}>Ways to give</span>
+            <span style={eyebrow}>Ways to sponsor</span>
             <h2
               style={{
                 fontFamily: lora,
@@ -194,7 +194,7 @@ export default function DonateMethods() {
                 color: "#4a3318",
               }}
             >
-              Give by Zelle or a mailed check
+              Sponsor by Zelle or a mailed check
             </h2>
           </div>
           <div
@@ -249,10 +249,10 @@ export default function DonateMethods() {
         </div>
       </section>
 
-      {/* ============ GIVE IN A TAP ============ */}
+      {/* ============ SPONSOR IN A TAP ============ */}
       <section style={{ padding: "2.5rem 2rem 4rem" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
-          <span style={eyebrow}>Give in a tap</span>
+          <span style={eyebrow}>Sponsor in a tap</span>
           <h2
             style={{
               fontFamily: lora,
@@ -262,7 +262,7 @@ export default function DonateMethods() {
               color: "#4a3318",
             }}
           >
-            Send a gift from your favorite app
+            Sponsor from your favorite app
           </h2>
           <p
             style={{
@@ -273,7 +273,7 @@ export default function DonateMethods() {
               maxWidth: "560px",
             }}
           >
-            Tap any app below to give in seconds.
+            Tap any app below to sponsor in seconds.
           </p>
         </div>
         <div
@@ -335,9 +335,9 @@ export default function DonateMethods() {
               {modal.name} is coming soon
             </h3>
             <p style={{ fontSize: "1.05rem", lineHeight: 1.6, margin: "0 0 1.5rem", color: "#5a4a32" }}>
-              We&rsquo;re still setting this one up. In the meantime, you can give right now
-              through <strong>Zelle</strong> or a <strong>mailed check</strong> &mdash; see the
-              details just above.
+              We&rsquo;re still setting this one up. In the meantime, you can sponsor right
+              now through <strong>Zelle</strong> or a <strong>mailed check</strong>{" "}
+              &mdash; see the details just above.
             </p>
             <GotItButton onClick={() => setModal(null)} />
           </div>

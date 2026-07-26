@@ -7,7 +7,7 @@ import DonateMethods from "./DonateMethods";
 export const metadata: Metadata = {
   title: "Support Our Work — Roots of Knowledge Tutoring",
   description:
-    "Support free reading tutoring for K–5 children in underserved Los Angeles communities. Give by Zelle, mailed check, credit card, or your favorite payment app.",
+    "Sponsor a young reader in an underserved Los Angeles community. Support free K–5 reading tutoring by Zelle, mailed check, credit card, or your favorite payment app.",
 };
 
 // Shared inline style fragments — same conventions as app/page.tsx
@@ -57,7 +57,7 @@ export default function Donate() {
               textWrap: "balance",
             }}
           >
-            Every gift helps a child find their words
+            Every sponsorship helps a child find their words
           </h1>
           <p
             style={{
@@ -70,18 +70,18 @@ export default function Donate() {
               textWrap: "pretty",
             }}
           >
-            Your support puts a caring tutor and the right books in front of
-            children who are ready to read. Give whichever way is easiest for
-            you — every gift goes straight to the children and tutors who need
-            it most.
+            Your sponsorship puts a caring tutor and the right books in front of
+            children who are ready to read. Choose whichever way is easiest for
+            you — every sponsorship goes straight to the children and tutors who
+            need it most.
           </p>
         </div>
       </section>
 
-      {/* ============ CHOOSE YOUR GIFT ============ */}
+      {/* ============ CHOOSE YOUR SPONSORSHIP ============ */}
       <section style={{ padding: "3.75rem 2rem 2rem" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto", textAlign: "center" }}>
-          <span style={eyebrow}>Choose your gift</span>
+          <span style={eyebrow}>Choose your sponsorship</span>
           <h2
             style={{
               fontFamily: lora,
@@ -102,8 +102,8 @@ export default function Donate() {
               maxWidth: "520px",
             }}
           >
-            A suggested amount to guide your gift — give once, or sponsor a
-            child every month.
+            A suggested amount to guide your sponsorship — once, or every
+            month.
           </p>
         </div>
         <GiftChooser />
@@ -112,10 +112,9 @@ export default function Donate() {
       {/* Card section, divider, Zelle/Check cards, app grid + coming-soon modal */}
       <DonateMethods />
 
-      {/* ============ GIVE YOUR TIME (volunteer callout) ============ */}
-      {/* "Support Our Work" spans money AND time — this closes the Donate page
-          by pointing would-be tutors to the Volunteer page. Link 404s until
-          /volunteer ships (accepted 2026-07-12, tracked in todo-nextjs-design). */}
+      {/* ============ SHARE YOUR TIME (volunteer callout) ============ */}
+      {/* "Support Our Work" spans money AND time — this closes the Sponsorship
+          page by pointing would-be tutors to the Volunteer page. */}
       <section
         style={{
           background: "var(--color-rokt-mid)",
@@ -132,7 +131,7 @@ export default function Donate() {
               marginBottom: "1rem",
             }}
           >
-            Another way to give
+            Another way to help
           </span>
           <h2
             style={{
@@ -143,7 +142,7 @@ export default function Donate() {
               textWrap: "balance",
             }}
           >
-            Give your time, not just a gift
+            Share your time, not just a sponsorship
           </h2>
           <p
             style={{
@@ -155,7 +154,7 @@ export default function Donate() {
               textWrap: "pretty",
             }}
           >
-            Every gift matters &mdash; and so does every hour. Become a tutor and
+            Every sponsorship matters &mdash; and so does every hour. Become a tutor and
             help a child in your community discover the confidence that comes
             with reading.
           </p>

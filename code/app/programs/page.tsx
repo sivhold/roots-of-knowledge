@@ -5,7 +5,7 @@ import { eyebrow } from "@/lib/typography";
 export const metadata: Metadata = {
   title: "Programs — Roots of Knowledge Tutoring",
   description:
-    "Free K–5 reading programs from Roots of Knowledge Tutoring: early literacy foundations, phonics and comprehension instruction, culturally relevant materials, and family partnership — in person and online across Los Angeles County.",
+    "K–5 reading programs from Roots of Knowledge Tutoring, free to qualifying families: early literacy foundations, phonics and comprehension instruction, culturally relevant materials, and family partnership — in person and online across Los Angeles County.",
 };
 
 // Shared inline style fragments (same conventions as Home/About)
