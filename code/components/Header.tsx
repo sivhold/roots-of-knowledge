@@ -125,10 +125,16 @@ export default function Header() {
               links are covered by the 301 in public/_redirects. */}
           <Link
             href="/sponsorship"
+            aria-current={pathname === "/sponsorship" ? "page" : undefined}
             style={{
               color: "var(--color-rokt-header-font)",
               fontFamily: "var(--font-source-sans), Arial, Helvetica, sans-serif",
-              textDecorationLine: "none",
+              // Matches the active-underline treatment on the five nav links
+              // above, so the pill isn't the one item that never shows where
+              // you are.
+              textDecorationLine:
+                pathname === "/sponsorship" ? "underline" : "none",
+              textUnderlineOffset: "4px",
               fontSize: "1.2rem",
               fontWeight: 600,
               padding: "0.45rem 1.3rem",
