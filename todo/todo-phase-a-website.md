@@ -14,6 +14,8 @@ Active build tasks currently tracked in the Todoist project "Roots-of-Knowledge"
 > - **"always free"/"free for families" wording** should become "free to qualifying families" wherever it appears ⏫ — children are vetted and selected by ROKT.
 >
 > Decide explicitly: mirror these onto WordPress now, or tell Carol the WordPress site is frozen pending cutover. See `MEMORY.md` (2026-07-23).
+>
+> **Update 2026-07-26:** Geoff asked Carol this directly and **she didn't answer it** — she replied to the other two questions and said she's ready to take over the site. Likely moot if the cutover happens soon, but it is still unresolved, and `roots-of-knowledge.com` continues to show "Donate" plus unqualified "free" wording in the meantime. **Phase A may be effectively over** — confirm on the handoff call before doing any further WordPress work.
 
 ## Done so far
 
