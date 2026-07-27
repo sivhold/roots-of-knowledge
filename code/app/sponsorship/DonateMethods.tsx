@@ -200,7 +200,7 @@ export default function DonateMethods() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
               gap: "1.5rem",
             }}
           >
@@ -281,7 +281,7 @@ export default function DonateMethods() {
             maxWidth: "820px",
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
             gap: "1.5rem",
           }}
         >

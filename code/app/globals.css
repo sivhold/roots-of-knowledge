@@ -28,6 +28,119 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ============ RESPONSIVE HEADER NAV (added 2026-07-26) ============
+   Staged down in four steps. Each threshold is the measured point where the
+   previous layout stops fitting — not a guess.
+
+     >= 1024px  full six-item nav (needs 972px: 636 nav + 272 logo + 64 padding)
+     <= 1023px  collapse About/Programs/Impact/Volunteer into a Menu button,
+                keeping Enroll + Sponsorship visible (needs 660px)
+     <=  719px  drop the two-line wordmark (needs ~460px)
+     <=  374px  tighten nav font/padding for 320px screens
+
+   Enroll and Sponsorship never collapse: they are the two things a visitor
+   comes here to do, and hiding them behind a tap costs conversions.
+
+   These rules live here rather than inline because inline style={{}} can't
+   express media queries, and deciding the layout from a JS width check would
+   flash the wrong nav on first paint in a static export. */
+
+/* Default (>= 1024px): full nav, no menu button, panel never shown. */
+.rokt-nav-menu-btn,
+.rokt-nav-panel {
+  display: none;
+}
+
+/* Stage 1 (<= 1023px): collapse the four secondary links into the menu. */
+@media (max-width: 1023px) {
+  /* Secondary links move into the panel */
+  .rokt-nav-secondary {
+    display: none;
+  }
+  .rokt-nav-menu-btn {
+    display: inline-flex;
+  }
+  /* Panel is only ever visible below the breakpoint AND when toggled open, so
+     resizing back to desktop can't strand an open dropdown on screen. */
+  .rokt-nav-panel[data-open="true"] {
+    display: flex;
+  }
+}
+
+/* Stage 2 (<= 719px): drop the wordmark.
+   With the wordmark showing, the collapsed header needs 660px (264px logo
+   lockup + 332px nav + 64px padding). Below that the wordmark — which can't
+   wrap, it uses non-breaking spaces — overflows its own box and collides with
+   the Menu button. Hiding it at 720px leaves margin so the two never touch,
+   while iPad portrait at 768px still keeps the full lockup. */
+@media (max-width: 719px) {
+  /* !important because both elements set `padding` as an inline SHORTHAND,
+     which beats a longhand stylesheet rule. Without it the header kept its
+     2rem padding all the way down to 320px. */
+  .rokt-header-inner {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  /* The logo image already carries the brand on its own. */
+  .rokt-logo-wordmark {
+    display: none;
+  }
+  .rokt-nav-panel {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Stage 3 (<= 619px): shrink the nav itself.
+   Wordmark gone, the header still needs ~460px, which overflows a 414px
+   iPhone 11. These reductions bring it to ~336px. */
+@media (max-width: 619px) {
+  /* Icon-only menu button — aria-label still announces it to screen readers. */
+  .rokt-nav-menu-label {
+    display: none;
+  }
+  /* Tighten the two remaining nav items so the logo keeps its full width.
+     !important is required here, not sloppiness: these components set
+     font-size and padding via inline style={{}}, and an inline style always
+     beats a stylesheet rule without it. */
+  .rokt-nav-link,
+  .rokt-nav-pill {
+    font-size: 1.05rem !important;
+  }
+  .rokt-nav-pill {
+    padding-left: 0.95rem !important;
+    padding-right: 0.95rem !important;
+    margin-left: 0.25rem !important;
+  }
+  .rokt-nav-link {
+    padding-left: 0.55rem !important;
+    padding-right: 0.55rem !important;
+  }
+}
+
+/* Stage 4 (<= 374px): the smallest screens still in real use — original
+   iPhone SE, older small Androids, and the Galaxy Fold's outer display. Stage 3
+   leaves ~332px of header, which still overflows a 320px viewport by 12px.
+   These last reductions buy that back. */
+@media (max-width: 374px) {
+  header nav {
+    gap: 0.2rem !important;
+  }
+  .rokt-nav-link,
+  .rokt-nav-pill {
+    font-size: 1rem !important;
+  }
+  .rokt-nav-pill {
+    padding-left: 0.7rem !important;
+    padding-right: 0.7rem !important;
+    margin-left: 0 !important;
+  }
+  .rokt-nav-link {
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+  }
+}
+
 /* Donate page coming-soon modal animations (from the redesign handoff):
    rokt-fade eases in the dark scrim, rokt-pop lifts the modal card in.
    Inline style={{}} can't declare @keyframes, so they live here. */

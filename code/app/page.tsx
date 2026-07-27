@@ -225,7 +225,10 @@ export default function Home() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              // min(...,100%) stops the 300px track from forcing the grid wider
+              // than the screen — without it these cards overflowed a 320px
+              // phone. Same guard already used on About and Programs.
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
               gap: "2rem",
             }}
           >
@@ -318,7 +321,7 @@ export default function Home() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))",
               gap: "1.75rem",
             }}
           >
