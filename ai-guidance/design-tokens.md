@@ -38,7 +38,7 @@ Decisions made 2026-06-21. All color tokens live in `code/app/globals.css` insid
 
 ## Font (pending decision)
 
-- Headings: Georgia or a serif via `next/font` / Google Fonts — TBD (see `todo/todo-nextjs-design.md` § 5)
+- Headings: Georgia or a serif via `next/font` / Google Fonts — now Lora (headings) + Source Sans 3 (body), see `how-the-site-works.md`
 - Body: Arial / Helvetica (current placeholder in `globals.css`)
 
 ---

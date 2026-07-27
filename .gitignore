@@ -19,6 +19,5 @@ Thumbs.db
 # Claude Code (keep shared launch config, skip machine-local settings)
 .claude/settings.local.json
 
-# Obsidian cache (keep plugin config, skip cache)
-.obsidian/cache
-.obsidian/workspace.json
+# Editor/vault config from the original author's workspace — not part of the site
+.obsidian/

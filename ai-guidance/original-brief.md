@@ -4,7 +4,7 @@ Carol Bluee's founding brief for the website: the page-by-page plan and the
 original wording for mission, vision, values, the founder story, and the
 program description. Much of the live site's copy traces back to this document.
 
-**Provenance.** Converted from `docs/website-design.docx` on 2026-07-26. That
+**Provenance.** Converted from `docs/website-design.docx` (the folder is now `ai-guidance/source-material/`) on 2026-07-26. That
 `.docx` was removed from the repo and its git history because it contained live
 WordPress and Pexels passwords in plain text. This markdown version is the
 content, with the credentials stripped — it is the only copy that remains.
@@ -100,7 +100,7 @@ resources that extend learning beyond tutoring sessions and into the home.
 
 ## Page 4 — Enroll / Get Help
 
-- See attached form (`docs/rokt-regform.docx`)
+- See attached form (`source-material/rokt-regform.docx`)
 - Add enroll button that links to the form
 
 ## Page 5 — Donate / Support Us
@@ -108,7 +108,7 @@ resources that extend learning beyond tutoring sessions and into the home.
 > ⚠️ Superseded. This page is now **Sponsorship** at `/sponsorship`, and all
 > donation wording has been replaced with sponsorship language.
 
-- See attached form (`docs/rokt-donate.docx`)
+- See attached form (`source-material/rokt-donate.docx`)
 - Add donation button that links to the form
 
 ## Page 6 — Resources for Families
@@ -117,7 +117,7 @@ resources that extend learning beyond tutoring sessions and into the home.
 
 ## Page 7 — Contact Us
 
-- See attached form (`docs/rokt-contact.docx`)
+- See attached form (`source-material/rokt-contact.docx`)
 - Add contact button that links to the form
 
 ---

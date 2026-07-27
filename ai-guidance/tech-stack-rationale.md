@@ -1,9 +1,12 @@
-# Tech Stack Rationale — Phase B (Next.js)
+# Tech Stack Rationale
 
-Record of *why* we built the Phase B stack the way we did, distinct from `CLAUDE.md`
-(which states the current decision) and `todo/todo-nextjs-migration.md` (which tracks
-build progress). Append new decisions here as they're made; don't let this drift from
-`CLAUDE.md`'s stack summary.
+Record of *why* the stack was chosen the way it was. For what the stack
+currently **is**, see [`how-the-site-works.md`](how-the-site-works.md).
+
+> References to `todo/` files point at planning documents moved to a private
+> workspace during the 2026-07-26 handoff restructure. They are not in this
+> repository. "Phase B" was the name for the migration from WordPress to
+> Next.js — that migration is complete; this is the site it produced.
 
 ---
 

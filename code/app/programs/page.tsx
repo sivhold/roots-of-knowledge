@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const lora = "var(--font-lora), Georgia, serif";
 
 // "What we teach" — adapted from Carol's flyer services list
-// (brain/page-designs-and-copy.md § Source Material). The flyer's fifth
+// (ai-guidance/page-copy-source.md § Source Material). The flyer's fifth
 // service, small-group and one-on-one tutoring, lives in the session
 // formats section below instead so the two sections don't repeat each other.
 const services = [

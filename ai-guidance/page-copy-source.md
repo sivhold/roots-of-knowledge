@@ -1,10 +1,17 @@
-# Page Designs & Copy Reference (portable to Next.js)
+# Page Designs & Copy Reference
 
-Durable page-level design and content detail, extracted from a 2026-06-21 `inbox/` batch
-of 10 handoff files (exports of past WordPress-era claude.ai conversations). Unlike
-`brain/wordpress-site-reference.md` (CSS rules, CoachAva theme quirks — WordPress-specific,
-discard when Phase B starts), this file captures layout structure, copy, and color
-application that should carry over into the Next.js rebuild.
+> **Historical reference — not current instructions.** Written during the
+> build, before the site was finished. Some sections describe pages as
+> "planned" that now exist, and it predates the sponsorship-language and
+> "free to qualifying families" decisions. Where this disagrees with
+> [`site-rules.md`](site-rules.md), that file wins.
+>
+> References to `brain/`, `todo/`, and `inbox/` point at planning folders that
+> were moved to a private workspace during the 2026-07-26 handoff restructure.
+> They are not in this repository.
+
+Durable page-level design and content detail, gathered while porting the site
+from WordPress. Captures layout structure, copy, and color application.
 
 Current live build status lives in `todo/todo-phase-a-website.md` — this file is reference,
 not status.
@@ -125,7 +132,7 @@ All four cards share the same visual treatment: `#A67535` background, `32px` pad
 
 ## Source Material: Carol's Marketing Flyer
 
-`docs/rokt-flyer.jpg` — Carol's print/social flyer, pulled from `inbox/` on 2026-06-21. This
+`source-material/rokt-flyer.jpg` — Carol's print/social flyer, pulled from `inbox/` on 2026-06-21. This
 is raw source material (not something we authored) and was the visual inspiration for the
 Homepage Layout Concepts above. It also contains copy that doesn't exist elsewhere in this
 repo and is a good source for the **Programs/Services** page and About/Mission framing:
